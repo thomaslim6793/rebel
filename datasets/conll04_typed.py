@@ -42,7 +42,6 @@ mapping = {'Kill': 'killed by', 'Live_In': 'residence', 'Located_In': 'location'
 mapping_types = {'Peop': '<peop>', 'Org': '<org>', 'Other': '<other>', 'Loc': '<loc>'}
 
 class CONLL04Config(datasets.BuilderConfig):
-    """BuilderConfig for CONLL04."""
 
     def __init__(self, **kwargs):
         """BuilderConfig for CONLL04.
@@ -53,7 +52,6 @@ class CONLL04Config(datasets.BuilderConfig):
 
 
 class CONLL04(datasets.GeneratorBasedBuilder):
-    """CONLL04"""
 
     BUILDER_CONFIGS = [
         CONLL04Config(
@@ -89,7 +87,6 @@ class CONLL04(datasets.GeneratorBasedBuilder):
             }
         else:
             downloaded_files = dl_manager.download_and_extract(_URLS)
-
         return [
             datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={"filepath": downloaded_files["train"]}),
             datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={"filepath": downloaded_files["dev"]}),
@@ -97,9 +94,7 @@ class CONLL04(datasets.GeneratorBasedBuilder):
         ]
 
     def _generate_examples(self, filepath):
-        """This function returns the examples in the raw (text) triplet form."""
         logging.info("generating examples from = %s", filepath)
-
         with open(filepath) as json_file:
             f = json.load(json_file)
             for id_, row in enumerate(f):

@@ -4,7 +4,7 @@ hydra-core==1.0.6
 transformers==4.20.1
 neptune-client==0.5.1
 psutil==5.8.0
-datasets==1.3.0
+datasets
 rouge-score==0.0.4
 sacrebleu==1.5.0
 wandb==0.10.26

@@ -40,7 +40,6 @@ _URLS = {
 mapping_types = {'LOC': '<loc>', 'MISC': '<misc>', 'PER': '<per>', 'NUM': '<num>', 'TIME': '<time>', 'ORG': '<org>'}
 
 class DocREDConfig(datasets.BuilderConfig):
-    """BuilderConfig for SQUAD."""
 
     def __init__(self, **kwargs):
         """BuilderConfig for SQUAD.
@@ -51,7 +50,6 @@ class DocREDConfig(datasets.BuilderConfig):
 
 
 class DocRED(datasets.GeneratorBasedBuilder):
-    """DocRED Version 1.0."""
 
     BUILDER_CONFIGS = [
         DocREDConfig(
