@@ -47,7 +47,12 @@ class AdeConfig(datasets.BuilderConfig):
         Args:
           **kwargs: keyword arguments forwarded to super.
         """
-        # initialize the super class attributes by passing **kwargs to the __init__ method of the super class
+        # initialize the super class attributes by passing **kwargs to the __init__ method of the super class.
+        # Here the class itself, i.e. `AdeConfig` is used as the first argument in super(), which is related to how 
+        # Python's method resolution order (MRO) works. When you call super() with the class itself and an 
+        # instance (self), Python uses the MRO to find the next class in line after AdeConfig to look for the method to call. 
+        # This is typically the immediate parent class of AdeConfig, but in more complex inheritance scenarios, it could be 
+        # another class in the hierarchy.
         super(AdeConfig, self).__init__(**kwargs)
 
 # Description: A datasets.GeneratorBasedBuilder subclass that defines how to load and preprocess the ADE dataset. 
@@ -59,7 +64,7 @@ class AdeConfig(datasets.BuilderConfig):
 # Ultimately, calling `dataset.load_dataset` method calls/instantiates this class, and calls its 3 methods, to build the 
 # `DatasetDict` object which is returned to the user.
 # This class is called implicitly by doing this:
-# >> my_dataset = load_dataset('ade', 'plain_text')  
+# >> my_dataset = load_dataset('ade.py', 'plain_text')  
 class Ade(datasets.GeneratorBasedBuilder):
     """Ade Version 1.0."""
     # This is a class attribute, accessed independently of any object of this class. I.e. Ade.BUILDER_CONFIGS is used. 
@@ -74,7 +79,7 @@ class Ade(datasets.GeneratorBasedBuilder):
     # Provides metadata about the ADE dataset. 
     # How this method is called: Called by the `load_dataset` function 
     # Its return value is accessed as follows:
-    # >> my_dataset = load_dataset('ade', 'plain_text')
+    # >> my_dataset = load_dataset('ade.py', 'plain_text')
     # >> my_dataset.info 
     def _info(self):
         return datasets.DatasetInfo(
