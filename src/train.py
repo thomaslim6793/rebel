@@ -14,7 +14,6 @@ from pytorch_lightning.loggers.wandb import WandbLogger
 from pytorch_lightning.callbacks import LearningRateMonitor
 from generate_samples import GenerateTextSamplesCallback
 
-# In     tr
 def train(conf: omegaconf.DictConfig) -> None:
     # Use a fixed seed for reproducibility for pseudo-random number generation
     pl.seed_everything(conf.seed)
