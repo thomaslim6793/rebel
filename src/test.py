@@ -88,7 +88,7 @@ def test(conf: omegaconf.DictConfig) -> None:
         conf.model_name_or_path,
         config=config,
     )
-    # if not conf.finetune:
+    # Resize model embedding to include new tokens
     model.resize_token_embeddings(len(tokenizer))
 
     # data module declaration

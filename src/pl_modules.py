@@ -1,4 +1,5 @@
 from typing import Any
+from datetime import datetime
 import nltk
 import json
 import pytorch_lightning as pl
@@ -110,6 +111,7 @@ class BasePLModule(pl.LightningModule):
         self.model = model
         self.config = config
         self.test_results = []
+        self.validation_results = []
         if self.model.config.decoder_start_token_id is None:
             raise ValueError("Make sure that `config.decoder_start_token_id` is correctly defined")
 
@@ -244,11 +246,6 @@ class BasePLModule(pl.LightningModule):
         return [extract_triplets(rel) for rel in decoded_preds], [extract_triplets(rel) for rel in decoded_labels]
 
     # Given the firt triplet, predict the subsequent triplets. 
-    # labels, used for loss calculation during training, typically do not include 
-    # <s> and </s>. They are direct sequences that the model should learn to predict, 
-    # offset by one position relative to the input if using teacher forcing (where the 
-    # model learns to predict the next token in the sequence). The labels are used to 
-    # calculate the loss between the predicted output and the actual next token in the sequence.
     def generate_samples(self,
         # model,
         # tokenizer,
@@ -292,7 +289,7 @@ class BasePLModule(pl.LightningModule):
         generated_tokens = self.model.generate(
             batch["input_ids"].to(self.model.device),
             attention_mask=batch["attention_mask"].to(self.model.device),
-            decoder_input_ids=labels_decoder.to(self.model.device),
+            decoder_input_ids=labels_decoder.to(self.model.device), 
             use_cache = False,
             **gen_kwargs,
         )
@@ -308,12 +305,7 @@ class BasePLModule(pl.LightningModule):
         # For each relation type, strip any leading or trailing whitespaces.
         return [rel.strip() for rel in decoded_preds]
 
-    def forward_samples(self,
-        # model,
-        # tokenizer,
-        batch,
-        labels,
-    ) -> None:
+    def forward_samples(self, batch, labels) -> None:
         relation_start = labels == 50265
         relation_start = torch.roll(relation_start, 2, 1)
         labels = torch.where(torch.cumsum(relation_start, dim=1) == 1, self.tokenizer.pad_token_id, labels)
@@ -322,12 +314,16 @@ class BasePLModule(pl.LightningModule):
         min_padding = min(torch.sum((labels == 1).int(), 1))
         labels_decoder = torch.randint(60000,(labels.shape[0], labels.shape[1] - min_padding))
         labels_decoder = labels[:, :-min_padding]
+
+        labels_decoder = torch.where(labels != -100, labels, self.config.pad_token_id)
+
         outputs = self.model(
             batch["input_ids"].to(self.model.device),
             attention_mask=batch["attention_mask"].to(self.model.device),
-            decoder_input_ids=labels_decoder.to(self.model.device),
+            decoder_input_ids=labels_decoder.to(self.model.device), # This is for 'teacher-forcing' i.e. decoder_input_ids is the guide.
             return_dict=True,
         )
+
         next_token_logits = outputs.logits[relation_start[:,: -min_padding]==1]
         next_tokens = torch.argmax(next_token_logits, dim=-1)
 
@@ -388,7 +384,12 @@ class BasePLModule(pl.LightningModule):
         outputs['predictions'], outputs['labels'] = self.generate_triples(batch, labels)
         return outputs
     
-    def validation_epoch_end(self, output: dict) -> Any:
+    def on_validation_batch_end(self, outputs, batch, batch_idx, dataloader_idx=0):
+        # Collect each batch's outputs
+        self.validation_results.append(outputs)
+    
+    def on_validation_epoch_end(self) -> Any:
+        output = self.validation_results
         if self.hparams.relations_file:
             relations_df = pd.read_csv(self.hparams.relations_file, header = None, sep='\t')
             relations = list(relations_df[0])
@@ -452,33 +453,63 @@ class BasePLModule(pl.LightningModule):
             if generated_tokens.shape[-1] < gen_kwargs["max_length"]:
                 generated_tokens = self._pad_tensors_to_max_len(generated_tokens, gen_kwargs["max_length"])
 
+        # Get the target sequence from batch.
         labels = batch.pop("labels")
+        # Note that the both the input and target labels are preprocessed by tokenizer such that they are both
+        # tagged with <s> BOS token. Try below to see.
+        # first_token_ids = labels[:, 0]  # Extract the first token ID from each sequence
+        # decoded_tokens = [self.tokenizer.decode([token_id]) for token_id in first_token_ids]
+        # print(decoded_tokens)
+
+        # Replace any label id of -100 with pad token id, and leave everything else as is.
         batch["decoder_input_ids"] = torch.where(labels != -100, labels, self.config.pad_token_id)
-        labels = shift_tokens_left(labels, -100)
+
+        # Then left shift target labels by 1, so that the prediction aligns with the target,
+        # since the prediction are the next tokens after the BOS token, it doesn't include BOS,
+        # so the target should also not include BOS.
+        # More specifically, when computing the loss of the model in the decoder phase, the input 
+        # to decoder is output of encoder and just the BOS token.
+        # Since the target is always the next token, the target has to be one left-shifted with 
+        # respect to the autoregressively generated input. (or the autoregressively generated input
+        # is right-shifted with respect to the target, same thing). 
+        # I.e. If the labels is "<s> Hello world", then after left shifting, it becomes "Hello world <pad>"
+        # and the decoder should, starting from <s>, autoregressively generate the next tokens until </s>,
+        # e.g. "Hi", "world", </s>. So then the prediction becomes "Hi world </s>", and the target is "Hello world </s>".
+        # So we can then compare "Hi" with "Hello", "world" with "world", and "</s>" with "</s>" to compute the loss.
+        labels = shift_tokens_left(labels, -100) 
+
+        # And we compute the forward pass to get the logits and loss.
         with torch.no_grad():
             # compute loss on predict data
             forward_output = self.forward(batch, labels)
 
+        # If we only want to get the loss from test set, then we log the loss and return.
         forward_output['loss'] = forward_output['loss'].mean().detach()
         if self.hparams.prediction_loss_only:
             self.log('test_loss', forward_output['loss'])
             return
 
+        # Else, use the logits (i.e. raw predictions) and the target labels to compare them and compute the metrics.
+        # detach() is a pytorch method that detaches the tensor from the computation graph, so that the tensor is not
+        # tracked for gradient computation. 
         forward_output['logits'] = generated_tokens.detach() if self.hparams.predict_with_generate else forward_output['logits'].detach()
 
         if labels.shape[-1] < gen_kwargs["max_length"]:
             forward_output['labels'] = self._pad_tensors_to_max_len(labels, gen_kwargs["max_length"])
         else:
             forward_output['labels'] = labels
-
         if self.hparams.predict_with_generate:
             metrics = self.compute_metrics(forward_output['logits'].detach().cpu(), forward_output['labels'].detach().cpu())
         else:
             metrics = {}
+        # And of course add the test loss to the metrics as well for more detailed evaluation.
         metrics['test_loss'] = forward_output['loss']
         for key in sorted(metrics.keys()):
             self.log(key, metrics[key], prog_bar=True)
+        # This is the end of logging the test set evaluation metrics for this test batch.
 
+        # And finally, more importantly, we want to generate the triplets from the model's predictions
+        # so that we can actually see the predicted triplets sequences.
         if self.hparams.finetune:
             return {'predictions': self.forward_samples(batch, labels)}
         else:
@@ -522,24 +553,30 @@ class BasePLModule(pl.LightningModule):
         #     self.log('test_recall_micro', recall)
         #     self.log('test_F1_micro', f1)
         else:
+            print(f'\n\nTesting results for `{self.hparams.model_name_or_path}` model which IS a fine-tuned model.' 
+                  f' The test file is `{self.hparams.test_file}` and'
+                  f' the prediction result is in the file `preds.jsonl`')
             key = []
             with open(self.hparams.test_file) as json_file:
                 f = json.load(json_file)
                 for id_, row in enumerate(f):
                     key.append(' '.join(row['token']))
-            f = open('preds.jsonl','w')
-            preds_list = []
-            labels_list = []
-            i = 0
-            for ele in outputs:
-                for pred, lab in zip(ele['predictions'], ele['labels']):
-                    if len(pred) == 0 or len(lab) == 0:
-                        continue
-                    f.write(f'{pred[0]} \t {lab[0]} \n')
-                    preds_list.append(pred[0]["type"])
-                    labels_list.append(lab[0]["type"])
-                    i+=1
-            f.close()
+
+            current_time = datetime.now().strftime('%b%d_%H-%M-%S')
+            prediction_file = current_time + '_preds.jsonl'
+            with open(prediction_file, 'w') as f:
+                f.write('Model name: ' + self.hparams.model_name_or_path + '\n')
+                f.write('Test file: ' + self.hparams.test_file + '\n')
+                preds_list = []
+                labels_list = []
+                for ele in outputs:
+                    for pred, lab in zip(ele['predictions'], ele['labels']):
+                        if len(pred) == 0 or len(lab) == 0:
+                            continue
+                        f.write(f'{pred[0]} \t {lab[0]} \n')
+                        preds_list.append(pred[0]["type"])
+                        labels_list.append(lab[0]["type"])
+
             prec_micro, recall_micro, f1_micro = score(labels_list, preds_list, verbose=True)
             self.log('test_prec_micro', prec_micro)
             self.log('test_recall_micro', recall_micro)
