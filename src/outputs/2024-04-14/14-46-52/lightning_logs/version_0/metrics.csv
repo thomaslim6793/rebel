@@ -1,2 +1,0 @@
-epoch,step,test_F1_micro,test_loss,test_prec_micro,test_recall_micro
-0,0,61.53845977783203,0.1303771585226059,64.0,59.25925827026367

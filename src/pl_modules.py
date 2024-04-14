@@ -315,7 +315,7 @@ class BasePLModule(pl.LightningModule):
         labels_decoder = torch.randint(60000,(labels.shape[0], labels.shape[1] - min_padding))
         labels_decoder = labels[:, :-min_padding]
 
-        labels_decoder = torch.where(labels != -100, labels, self.config.pad_token_id)
+        labels_decoder = torch.where(labels_decoder != -100, labels_decoder, self.config.pad_token_id)
 
         outputs = self.model(
             batch["input_ids"].to(self.model.device),
@@ -510,12 +510,15 @@ class BasePLModule(pl.LightningModule):
 
         # And finally, more importantly, we want to generate the triplets from the model's predictions
         # so that we can actually see the predicted triplets sequences.
-        if self.hparams.finetune:
-            return {'predictions': self.forward_samples(batch, labels)}
-        else:
-            outputs = {}
-            outputs['predictions'], outputs['labels'] = self.generate_triples(batch, labels)
-            return outputs
+        # if self.hparams.finetune:
+        #     return {'predictions': self.forward_samples(batch, labels)}
+        # else:
+        #     outputs = {}
+        #     outputs['predictions'], outputs['labels'] = self.generate_triples(batch, labels)
+        #     return outputs
+        outputs = {}
+        outputs['predictions'], outputs['labels'] = self.generate_triples(batch, labels)
+        return outputs
         
     def on_test_batch_end(self, outputs, batch, batch_idx, dataloader_idx=0):
         # Collect each batch's outputs
@@ -553,17 +556,16 @@ class BasePLModule(pl.LightningModule):
         #     self.log('test_recall_micro', recall)
         #     self.log('test_F1_micro', f1)
         else:
-            print(f'\n\nTesting results for `{self.hparams.model_name_or_path}` model which IS a fine-tuned model.' 
-                  f' The test file is `{self.hparams.test_file}` and'
-                  f' the prediction result is in the file `preds.jsonl`')
-            key = []
-            with open(self.hparams.test_file) as json_file:
-                f = json.load(json_file)
-                for id_, row in enumerate(f):
-                    key.append(' '.join(row['token']))
-
             current_time = datetime.now().strftime('%b%d_%H-%M-%S')
             prediction_file = current_time + '_preds.jsonl'
+            print(f'\n\nTesting results for `{self.hparams.model_name_or_path}` model which IS a fine-tuned model.' 
+                  f' The test file is `{self.hparams.test_file}` and'
+                  f' the prediction result is in the file `{prediction_file}`')
+            # key = []
+            # with open(self.hparams.test_file) as json_file:
+            #     f = json.load(json_file)
+            #     for id_, row in enumerate(f):
+            #         key.append(' '.join(row['token']))
             with open(prediction_file, 'w') as f:
                 f.write('Model name: ' + self.hparams.model_name_or_path + '\n')
                 f.write('Test file: ' + self.hparams.test_file + '\n')
