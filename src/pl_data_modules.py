@@ -15,6 +15,38 @@ from transformers import (
     set_seed,
 )
 
+# This class is a PyTorch Lightning DataModule that is used to create DataLoader object. The DataLoader object, the object which
+# this class outputs, is the format of data that the Pytorch Lightning's Trainer object requires. 
+# Without a DataLoader object, we have to do the batching, shuffling, tensorization, hardware configuration manually, which 
+# is a lot of work - DataLoader encapsulates all this into a single object.
+
+# Similar to how a subclass of datasets.BuilderConfig implements the preset interface methods, and these methods are automatically
+# triggered by the datasets.load_dataset() function, the mechanism is similar.
+
+# In PyTorch Lightning, the methods in LightningDataModule such as prepare_data, setup, train_dataloader, val_dataloader, 
+# and test_dataloader are automatically triggered by the PyTorch Lightning Trainer at specific points in the training lifecycle. 
+# The developer does not need to manually call these methods; instead, they define these methods in their LightningDataModule 
+# subclass, and then simply pass an instance of this subclass to the Trainer. The Trainer takes care of invoking these methods 
+# at the appropriate times, ensuring the data is prepared and loaded correctly for the training, validation, and testing phases. 
+# This automation helps streamline the workflow and makes the code cleaner and more modular.
+
+# The BasePLDataModule takes the dataset (or DatasetDict) that has already been processed by the Ade builder or similar and 
+# wraps it in a structure that integrates well with PyTorch Lightning workflows for training, validation, and testing.
+# I.e. the datasets.GeneratorBasedBuilder was used to create the dataset, i.e. the DatasetDict object.
+# The pl.LightningDataModule is then used to wrap this DatasetDict with other information and outputs DataLoader object via
+# the methods train_dataloader, val_dataloader, and test_dataloader. 
+
+# Remember that the point of DataLoader is to automize a pipeline on how to apply additional transformations and process 
+# the data by the Trainor object. Some processes it automizes are shuffling, batching, and loading the data in parallel.
+# The PyTorch Lightning Trainer object requires the dataset to be provided through a DataLoader, not directly as a Dataset 
+# or DatasetDict object. It is an additional layer of abstraction for precisely formatting the input for the training process.
+
+# DatasetDict: Data management into splits, and preprocessing of raw data into a more usable format but still operating at human
+# readable data level. 
+# DataLoader: Data management into batches, shuffling, hardware configuration (like are we using CPU or GPU, how many 
+# workers are we using), and processing of data into a computer readable format (tensors) that can be fed into, and 
+# processed by, the model. Note, 'data collator' is the component of DataLoader that processes the data into a format that 
+# can be fed into the model.
 class BasePLDataModule(pl.LightningDataModule):
     """
     FROM LIGHTNING DOCUMENTATION
@@ -56,7 +88,8 @@ class BasePLDataModule(pl.LightningDataModule):
     split transform and process the data
 
     """
-
+    # Create the BasePLDataModule which contains: Hydra configuration, tokenizer, and model,
+    # dataset (DatasetDict object), and data collator object.
     def __init__(self, conf: DictConfig, tokenizer: AutoTokenizer, model: AutoModelForSeq2SeqLM):
         super().__init__()
         self.conf = conf
@@ -87,12 +120,19 @@ class BasePLDataModule(pl.LightningDataModule):
         else:
             self.data_collator = DataCollatorForSeq2Seq(self.tokenizer, self.model, label_pad_token_id=label_pad_token_id)
 
+    # Apply the computer level preprocessing to our datset from the DatasetDict object, i.e. we are not
+    # "tensorizing" the data by applying tokenizer. And also applying other low level hardware level optimization 
+    # stuff like caching,
     def prepare_data(self, *args, **kwargs):
         self.train_dataset = self.datasets["train"]
         if "train" not in self.datasets:
             raise ValueError("--do_train requires a train dataset")
         if self.conf.max_train_samples is not None:
             self.train_dataset = self.train_dataset.select(range(self.conf.max_train_samples))
+        # This is the core part of preprocessing. We are mapping the dataset to the `preprocess_function`
+        # by using `Dataset.map()`. (note DatsetDict['train'] is a Dataset object, and Dataset.map() is a
+        #  method of Dataset object). The additional keyword arguments help customize and optimize how this 
+        # operation is performed for faster processing. 
         self.train_dataset = self.train_dataset.map(
             self.preprocess_function,
             batched=True,
@@ -134,6 +174,7 @@ class BasePLDataModule(pl.LightningDataModule):
                 cache_file_name=self.conf.test_file.replace('.jsonl', '-') + self.conf.dataset_name.split('/')[-1].replace('.py', '.cache'),
             )
 
+    # This method is triggered to return the DataLoader object for training, after the training data has been prepared. 
     def train_dataloader(self, *args, **kwargs) -> DataLoader:
         return DataLoader(
             self.train_dataset,
@@ -171,6 +212,9 @@ class BasePLDataModule(pl.LightningDataModule):
     # def transfer_batch_to_device(self, batch: Any, device: torch.device) -> Any:
     #     raise NotImplementedError
 
+    # Function to preprocess the data by encoding it into tensor object using the tokenizer. 
+    # This function is called by the `prepare_data` method to map it to the dataset object.
+    # Here we are doing: prefix adding, tokenization, padding, and truncation.
     def preprocess_function(self, examples):
 
         inputs = examples[self.text_column]
@@ -183,7 +227,8 @@ class BasePLDataModule(pl.LightningDataModule):
             labels = self.tokenizer(targets, max_length=self.max_target_length, padding=self.padding, truncation=True)
 
         # If we are padding here, replace all tokenizer.pad_token_id in the labels by -100 when we want to ignore
-        # padding in the loss.
+        # padding in the loss. `self.padding = "max_length"` is a padding strategy to pad until max_length is reached
+        # if sequence is less than max_length.
         if self.padding == "max_length" and self.conf.ignore_pad_token_for_loss:
             labels["input_ids"] = [
                 [(l if l != self.tokenizer.pad_token_id else -100) for l in label] for label in labels["input_ids"]
@@ -192,4 +237,4 @@ class BasePLDataModule(pl.LightningDataModule):
         # model_inputs["decoder_attention_mask"] = labels["attention_mask"]
         # model_inputs["labels"] = shift_tokens_left(labels["input_ids"], self.tokenizer.pad_token_id)
         model_inputs["labels"] = labels["input_ids"]
-        return model_inputs
+        return model_inputs # A dict whose keys are: input_ids, attention_mask, labels

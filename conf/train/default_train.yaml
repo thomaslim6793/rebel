@@ -24,7 +24,7 @@ amp_level:
 
 do_train: True
 do_eval: True
-do_predict: False
+do_predict: True # False
 evaluation_strategy: "no"
 prediction_loss_only: False
 checkpoint_path:

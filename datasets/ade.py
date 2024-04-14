@@ -180,7 +180,7 @@ class Ade(datasets.GeneratorBasedBuilder):
                 # for all rows and then return the object to the user. This is clearly memory dependent. But with the `yield` statement at the end of the loop,
                 # we can execute an iteration of this for-loop and return the value of this `yield` statement "on-demand". Simply put, lazy evaluation.
                 # Note we can implement this using Python iterator of which generator is a subclass of, but using generator (i.e. using yield) is syntactically
-                # much more concise and readable. This of generator as a special syntax that Python "compiles" at runtime into
+                # much more concise and readable. Think of generator as a special syntax that Python "compiles" at runtime into
                 # a class with iterator protocol, i.e. having the `__iter__` and `__next__` method.
                 yield str(row["orig_id"]), {
                     "title": str(row["orig_id"]),

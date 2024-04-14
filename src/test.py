@@ -1,5 +1,6 @@
 import omegaconf
 import hydra
+import torch
 
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
@@ -53,8 +54,8 @@ relations = {'no_relation': 'no relation',
 'per:stateorprovinces_of_residence': 'state of residence',
 'per:title': 'title'}
 
-
-def train(conf: omegaconf.DictConfig) -> None:
+# Evaluate the model on unseen data using predefined metrics. 
+def test(conf: omegaconf.DictConfig) -> None:
     pl.seed_everything(conf.seed)
 
     config = AutoConfig.from_pretrained(
@@ -94,24 +95,41 @@ def train(conf: omegaconf.DictConfig) -> None:
     pl_data_module = BasePLDataModule(conf, tokenizer, model)
 
     # main module declaration
-    pl_module = BasePLModule(conf, config, tokenizer, model)
-    pl_module = pl_module.load_from_checkpoint(checkpoint_path = conf.checkpoint_path, config = config, tokenizer = tokenizer, model = model)
-    # pl_module.hparams.predict_with_generate = True
+    if conf.checkpoint_path:
+        pl_module = BasePLModule.load_from_checkpoint(checkpoint_path=conf.checkpoint_path, config=config, tokenizer=tokenizer, model=model)
+        pl_module.config = config
+        pl_module.tokenizer = tokenizer
+        pl_module.model = model
+    else:
+        pl_module = BasePLModule(conf, config, tokenizer, model)  # Adjust as per your constructor requirements
+
     pl_module.hparams.test_file = pl_data_module.conf.test_file
     # trainer
+
+    # Check if any GPUs are available
+    gpu_count = torch.cuda.device_count()
+    accelerator = 'gpu' if gpu_count > 0 else 'cpu'
+
+    # Configure the trainer to use GPU if available, otherwise CPU
     trainer = pl.Trainer(
-        gpus=conf.gpus,
+        devices=conf.gpus if gpu_count > 0 else 1,  # Use all GPUs available or 1 CPU
+        accelerator=accelerator
     )
+
     # Manually run prep methods on DataModule
     pl_data_module.prepare_data()
-    pl_data_module.setup()
+    pl_data_module.setup(stage='test')
 
-    trainer.test(pl_module, test_dataloaders=pl_data_module.test_dataloader())
+    #The pl.Trainer object in PyTorch Lightning is designed not just for training but 
+    # also to facilitate validation and testing. It provides a standardized way to run 
+    # these processes, ensuring that they leverage the same distributed and accelerated 
+    # environment setup that is used during training.
+    trainer.test(pl_module, dataloaders=pl_data_module.test_dataloader())
 
 
 @hydra.main(config_path='../conf', config_name='root')
 def main(conf: omegaconf.DictConfig):
-    train(conf)
+    test(conf)
 
 
 if __name__ == '__main__':
