@@ -1,13 +1,13 @@
 # @package _global_
 
 num_workers: 8
-dataset_name: '/Users/thomaslim/rebel/datasets/rebel-short.py'
+dataset_name: '/Users/thomaslim/rebel/datasets/biorel.py'
 
 text_column: 'context'
 target_column: 'triplets'
-train_file: '/Users/thomaslim/rebel/data/rebel/sample.jsonl'
-validation_file: '/Users/thomaslim/rebel/data/rebel/sample.jsonl'
-test_file: '/Users/thomaslim/rebel/data/rebel/sample.jsonl'
+train_file: '/Users/thomaslim/rebel/data/biorel/train.jsonl'
+validation_file: '/Users/thomaslim/rebel/data/biorel/valid.jsonl'
+test_file: '/Users/thomaslim/rebel/data/biorel/test.jsonl'
 overwrite_cache: False
 preprocessing_num_workers: 
 max_source_length: 256
@@ -21,4 +21,4 @@ num_beams:
 eval_beams: 3
 ignore_pad_token_for_loss: True
 source_prefix: 
-relations_file: '/Users/thomaslim/rebel/data/relations_count.tsv'
+relations_file:

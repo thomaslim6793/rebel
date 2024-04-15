@@ -1,5 +1,6 @@
 import omegaconf
 import hydra
+import torch
 
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
@@ -109,8 +110,14 @@ def train(conf: omegaconf.DictConfig) -> None:
     # optimization level (e.g. `accumulate_grad_batches`), some which are for logging (e.g. `logger`),
     # and some which are for checkpointing (e.g. `resume_from_checkpoint`), and finally some are 
     # hyperparameters of training (e.g. `max_steps`).
+
+    # Check if any GPUs are available
+    gpu_count = torch.cuda.device_count()
+    accelerator = 'gpu' if gpu_count > 0 else 'cpu'
+
     trainer = pl.Trainer(
-        gpus=conf.gpus,
+        devices=conf.gpus if gpu_count > 0 else 1,
+        accelerator=accelerator,
         accumulate_grad_batches=conf.gradient_acc_steps,
         gradient_clip_val=conf.gradient_clip_value,
         val_check_interval=conf.val_check_interval,
@@ -118,9 +125,7 @@ def train(conf: omegaconf.DictConfig) -> None:
         max_steps=conf.max_steps,
         # max_steps=total_steps,
         precision=conf.precision,
-        amp_level=conf.amp_level,
         logger=wandb_logger,
-        resume_from_checkpoint=conf.checkpoint_path,
         limit_val_batches=conf.val_percent_check
     )
 

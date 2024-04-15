@@ -212,11 +212,10 @@ class BasePLDataModule(pl.LightningDataModule):
     # def transfer_batch_to_device(self, batch: Any, device: torch.device) -> Any:
     #     raise NotImplementedError
 
-    # Function to preprocess the data by encoding it into tensor object using the tokenizer. 
+    # Function to preprocess the 3data by encoding it into tensor object using the tokenizer. 
     # This function is called by the `prepare_data` method to map it to the dataset object.
     # Here we are doing: prefix adding, tokenization, padding, and truncation.
     def preprocess_function(self, examples):
-
         inputs = examples[self.text_column]
         targets = examples[self.summary_column]
         inputs = [self.prefix + inp for inp in inputs]
