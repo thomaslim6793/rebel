@@ -57,7 +57,7 @@ python -c "import torch; print('torch version is: ', torch.__version__); assert 
 # Only update if assertion fails
 if [ $? -ne 0 ]; then
     echo "Updating PyTorch and dependencies to match CUDA 11.8..."
-    pip uninstall -y torch
+    pip uninstall -y torch torchvision torchaudio
     pip install torch==$DESIRED_PYTORCH_VERSION --index-url https://download.pytorch.org/whl/cu118
 fi
 
