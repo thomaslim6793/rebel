@@ -55,7 +55,7 @@ def test(conf: omegaconf.DictConfig) -> None:
     pl_data_module = BasePLDataModule(conf, tokenizer, model)
 
     # main module declaration
-    if conf.checkpoint_path:
+    if conf.checkpoint_path and conf.finetune:
         base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         checkpoint_abs_path = os.path.join(base_path, conf.checkpoint_path)
         checkpoint = torch.load(checkpoint_abs_path, map_location=torch.device('cpu'))
