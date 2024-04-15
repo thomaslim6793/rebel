@@ -33,22 +33,14 @@ class GenerateTextSamplesCallback(Callback):  # pragma: no cover
     # This is one of the predefined hooks that Pytorch Lightning calls during training. I.e.
     # the name `on_train_batch_end` is not arbitrary; it is a pre-defined name that Pytorch Lightning 
     # will call during training.
-    def on_train_batch_end(
-        self,
-        trainer: Trainer, # The caller of this callback, and the trainer of the model.
-        pl_module: LightningModule, # The model being trained. (Name "module" is used because it encapsulates more than just the model, but also the optimizer and other things.)
-        outputs: Sequence,
-        batch: Sequence, # The input batch, a dictionary of input data (X) and labels (Y)
-        batch_idx: int,
-        dataloader_idx: int,
-    ) -> None:
+    def on_train_batch_end(self, trainer, pl_module, outputs, batch, batch_idx, dataloader_idx=0):
         # This line of code creates a new table in Weights & Biases (wandb), which is 
         # an experiment tracking and visualization tool commonly used in machine learning projects.
         wandb_table = wandb.Table(columns=["Source", "Pred", "Gold"])
         # pl_module.logger.info("Executing translation callback")
         # This line of code checks if the current batch index is a multiple of the logging_batch_interval.
         # So we are only predicting sample at self.logging_batch_interval, not every batch.
-        if (trainer.batch_idx + 1) % self.logging_batch_interval != 0:  # type: ignore[attr-defined]
+        if (batch_idx + 1) % self.logging_batch_interval != 0:  # type: ignore[attr-defined]
             return
         labels = batch.pop("labels") # Type of labels is likely torch.Tensor of sequence of token ids.
         # Define generation kwargs to pass to the pl_module.model.generate method, such as the max length
