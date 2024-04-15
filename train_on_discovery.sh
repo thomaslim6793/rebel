@@ -9,28 +9,37 @@
 #SBATCH --output=myjob.%j.out
 #SBATCH --error=myjob.%j.err
 
-module load anaconda3/2022.05 cuda/12.1
+# Set versions as variables
+CUDA_VERSION="12.1"
+ANACONDA_VERSION="2022.05"
+
+module load anaconda3/$ANACONDA_VERSION cuda/$CUDA_VERSION
 source ~/miniconda3/etc/profile.d/conda.sh
+
+# Check for NVIDIA Driver version
+echo "Checking for NVIDIA Driver version..."
+if ! nvidia_driver_version=$(nvidia-smi | grep "Driver Version" | awk '{print $3}'); then
+    echo "NVIDIA driver is not available or nvidia-smi not found."
+    exit 1
+else
+    echo "NVIDIA Driver Version: $nvidia_driver_version"
+fi
 
 # Check CUDA availability and version
 echo "Checking for CUDA and its version..."
-cuda_version=$(nvcc --version | grep "release" | sed 's/.*release \(.*\),.*/\1/')
-if [ -z "$cuda_version" ]; then
+if ! cuda_version=$(nvcc --version | grep "release" | sed 's/.*release \(.*\),.*/\1/'); then
     echo "CUDA is not available."
+    exit 1
+elif [[ "$cuda_version" != "$CUDA_VERSION" ]]; then
+    echo "Unexpected CUDA version. Expected $CUDA_VERSION, found $cuda_version."
     exit 1
 else
     echo "CUDA version $cuda_version is available."
 fi
 
-# Ensure that the CUDA version is appropriate
-if [[ "$cuda_version" != "12.1" ]]; then
-    echo "Unexpected CUDA version. Expected 12.1, found $cuda_version."
-    exit 1
-fi
-
-# Check if the environment exists
-conda info --envs | grep cs6120-project
-if [ $? -ne 0 ]; then
+# Check if the Conda environment exists
+echo "Checking Conda environment..."
+if ! conda info --envs | grep -q 'cs6120-project'; then
     echo "Creating a new Conda environment."
     conda create --name cs6120-project python=3.11 -y
 else

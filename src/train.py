@@ -111,9 +111,18 @@ def train(conf: omegaconf.DictConfig) -> None:
     # and some which are for checkpointing (e.g. `resume_from_checkpoint`), and finally some are 
     # hyperparameters of training (e.g. `max_steps`).
 
-    # Check if any GPUs are available
+    # Check if any GPUs are available and CUDA is available.
+    if torch.cuda.is_available():
+        test_tensor = torch.tensor([1.0]).cuda()
+        print("CUDA is available, test tensor:", test_tensor)
+    else:
+        print("CUDA is not available.")
     gpu_count = torch.cuda.device_count()
     accelerator = 'gpu' if gpu_count > 0 else 'cpu'
+
+    print(f"Number of GPUs detected: {gpu_count}")
+    print(f"Selected accelerator: {accelerator}")
+
 
     trainer = pl.Trainer(
         devices=conf.gpus if gpu_count > 0 else 1,
