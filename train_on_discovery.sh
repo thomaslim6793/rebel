@@ -12,6 +12,8 @@
 # Set versions as variables
 CUDA_VERSION="11.8"
 ANACONDA_VERSION="2022.05"
+DESIRED_PYTORCH_VERSION="2.2.2"
+DESIRED_CUDA_VERSION="cu118"
 
 module load anaconda3/$ANACONDA_VERSION cuda/$CUDA_VERSION
 source ~/miniconda3/etc/profile.d/conda.sh
@@ -25,7 +27,7 @@ else
     echo "NVIDIA Driver Version: $nvidia_driver_version"
 fi
 
-# Check CUDA availability and version
+# Check CUDA availability and version in the system
 echo "Checking for CUDA and its version..."
 if ! cuda_version=$(nvcc --version | grep "release" | sed 's/.*release \(.*\),.*/\1/'); then
     echo "CUDA is not available."
@@ -46,7 +48,19 @@ else
     echo "Environment cs6120-project already exists."
 fi
 
+# Activate the Conda environment and install requirements
 conda activate cs6120-project
+
+# Check PyTorch and CUDA version
+python -c "import torch; assert torch.__version__ == '$DESIRED_PYTORCH_VERSION' and 'cu118' in torch.version.cuda, 'Version mismatch'"
+
+# Only update if assertion fails
+if [ $? -ne 0 ]; then
+    echo "Updating PyTorch and dependencies to match CUDA 11.8..."
+    pip uninstall -y torch torchvision torchaudio
+    pip install torch==$DESIRED_PYTORCH_VERSION --index-url https://download.pytorch.org/whl/cu118
+fi
+
 pip install -r requirements.txt
 
 echo "Now running the Python script to start our training process"
