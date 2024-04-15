@@ -10,7 +10,7 @@
 #SBATCH --error=myjob.%j.err
 
 # Set versions as variables
-CUDA_VERSION="12.1"
+CUDA_VERSION="11.8"
 ANACONDA_VERSION="2022.05"
 
 module load anaconda3/$ANACONDA_VERSION cuda/$CUDA_VERSION
