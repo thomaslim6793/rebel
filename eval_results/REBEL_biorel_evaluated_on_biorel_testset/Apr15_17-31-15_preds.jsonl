@@ -1,5 +1,6 @@
 Model name: models/REBEL_biorel/last.ckpt
 Test file: data/biorel/test.jsonl
+predictions 	 labels 
 {'head': 'dna-histone', 'type': 'gene_product_has_associated_anatomy', 'tail': 'nucleosomes'} 	 {'head': 'histone', 'type': 'gene_product_has_associated_anatomy', 'tail': 'nucleosomes'} 
 {'head': 'thymomas', 'type': 'disease_has_associated_anatomic_site', 'tail': 'thymic'} 	 {'head': 'lymphocyte-rich thymomas', 'type': 'disease_has_normal_cell_origin', 'tail': 'epithelial cells'} 
 {'head': 'cell', 'type': 'has_physical_part_of_anatomic_structure', 'tail': 'cell membrane'} 	 {'head': 'cell', 'type': 'has_physical_part_of_anatomic_structure', 'tail': 'cell membrane'} 
