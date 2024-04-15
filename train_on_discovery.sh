@@ -2,7 +2,7 @@
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
-#SBATCH --time=01:00:00
+#SBATCH --time=04:00:00
 #SBATCH --job-name=REBEL_bio_train_on_gpu
 #SBATCH --mem=4GB
 #SBATCH --ntasks=1
@@ -17,6 +17,6 @@ conda activate cs6120-project
 
 pip install -r requirements.txt
 
-# Automatically enter '3' to bypass wandb login
+echo "Now running the Python script to start our training process"
 export WANDB_MODE=disabled
-echo "3" | python src/train.py
+python src/train.py
