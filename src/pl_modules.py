@@ -243,6 +243,7 @@ class BasePLModule(pl.LightningModule):
             return [extract_triplets_typed(rel, {'<loc>': 'LOCATION', '<org>': 'ORGANIZATION', '<per>': 'PERSON'}) for rel in decoded_preds], [extract_triplets_typed(rel, {'<loc>': 'LOCATION', '<org>': 'ORGANIZATION', '<per>': 'PERSON'}) for rel in decoded_labels]
         elif self.hparams.dataset_name.split('/')[-1] == 'docred_typed.py':
             return [extract_triplets_typed(rel, {'<loc>': 'LOC', '<misc>': 'MISC', '<per>': 'PER', '<num>': 'NUM', '<time>': 'TIME', '<org>': 'ORG'}) for rel in decoded_preds], [extract_triplets_typed(rel, {'<loc>': 'LOC', '<misc>': 'MISC', '<per>': 'PER', '<num>': 'NUM', '<time>': 'TIME', '<org>': 'ORG'}) for rel in decoded_labels]
+        # Return type is ([[triplet1, ...], ...],[[triplet1, ...], ...])
         return [extract_triplets(rel) for rel in decoded_preds], [extract_triplets(rel) for rel in decoded_labels]
 
     # Given the firt triplet, predict the subsequent triplets. 
@@ -557,9 +558,14 @@ class BasePLModule(pl.LightningModule):
         else:
             current_time = datetime.now().strftime('%b%d_%H-%M-%S')
             prediction_file = current_time + '_preds.jsonl'
-            print(f'\n\nTesting results for `{self.hparams.checkpoint_path}` model.' 
-                  f' The test file is `{self.hparams.test_file}` and'
-                  f' the prediction result is in the file `{prediction_file}`')
+            if self.hparams.finetune:
+                print(f'\n\nTesting results for `{self.hparams.checkpoint_path}` model.' 
+                    f' The test file is `{self.hparams.test_file}` and'
+                    f' the prediction result is in the file `{prediction_file}`')
+            else:
+                print(f'\n\nTesting results for `{self.hparams.model_name_or_path}` model.' 
+                    f' The test file is `{self.hparams.test_file}` and'
+                    f' the prediction result is in the file `{prediction_file}`')
             # key = []
             # with open(self.hparams.test_file) as json_file:
             #     f = json.load(json_file)
@@ -575,6 +581,7 @@ class BasePLModule(pl.LightningModule):
                     for pred, lab in zip(ele['predictions'], ele['labels']):
                         if len(pred) == 0 or len(lab) == 0:
                             continue
+                        # We are just using the first triplet in case there are multiple triplets predicted.
                         f.write(f'{pred[0]} \t {lab[0]} \n')
                         preds_list.append(pred[0]["type"])
                         labels_list.append(lab[0]["type"])
