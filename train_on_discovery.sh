@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
+#SBATCH --gres=gpu:a100:1
 #SBATCH --time=08:00:00
 #SBATCH --job-name=REBEL_bio_train_on_gpu
 #SBATCH --mem=16GB
@@ -51,7 +52,7 @@ fi
 conda activate cs6120-project
 
 # Check PyTorch and CUDA version
-python -c "import torch; assert torch.__version__ == '$DESIRED_PYTORCH_VERSION' and 'cu118' in torch.version.cuda, 'Version mismatch'"
+python -c "import torch; assert torch.__version__ == '$DESIRED_PYTORCH_VERSION+$DESIRED_CUDA_VERSION' and 'cu118' in torch.version.cuda, 'Version mismatch'"
 
 # Only update if assertion fails
 if [ $? -ne 0 ]; then
