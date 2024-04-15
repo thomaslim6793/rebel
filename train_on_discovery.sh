@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
-#SBATCH --gres=gpu:a100:1
+#SBATCH --gres=gpu:p100:1
 #SBATCH --time=08:00:00
 #SBATCH --job-name=REBEL_bio_train_on_gpu
 #SBATCH --mem=16GB
