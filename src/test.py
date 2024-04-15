@@ -1,6 +1,7 @@
 import omegaconf
 import hydra
 import torch
+import os
 
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
@@ -12,47 +13,6 @@ from transformers import AutoConfig, AutoModelForSeq2SeqLM, AutoTokenizer
 from pytorch_lightning.loggers.neptune import NeptuneLogger
 from pytorch_lightning.callbacks import LearningRateMonitor
 from generate_samples import GenerateTextSamplesCallback
-
-relations = {'no_relation': 'no relation',
-'org:alternate_names': 'alternate name',
-'org:city_of_branch': 'city of headquarters',
-'org:country_of_branch': 'country of headquarters',
-'org:dissolved': 'dissolved',
-'org:founded_by': 'founded by',
-'org:founded': 'founded',
-'org:member_of': 'member of',
-'org:members': 'members',
-'org:number_of_employees/members': 'number of members',
-'org:political/religious_affiliation': 'affiliation',
-'org:shareholders': 'shareholders',
-'org:stateorprovince_of_branch': 'state of headquarters',
-'org:top_members/employees': 'top members',
-'org:website': 'website',
-'per:age': 'age',
-'per:cause_of_death': 'cause of death',
-'per:charges': 'charges',
-'per:children': 'children',
-'per:cities_of_residence': 'city of residence',
-'per:city_of_birth': 'place of birth',
-'per:city_of_death': 'place of death',
-'per:countries_of_residence': 'country of residence',
-'per:country_of_birth': 'country of birth',
-'per:country_of_death': 'country of death',
-'per:date_of_birth': 'date of birth',
-'per:date_of_death': 'date of death',
-'per:employee_of': 'employee of',
-'per:identity': 'identity',
-'per:origin': 'origin',
-'per:other_family': 'other family',
-'per:parents': 'parents',
-'per:religion': 'religion',
-'per:schools_attended': 'educated at',
-'per:siblings': 'siblings',
-'per:spouse': 'spouse',
-'per:stateorprovince_of_birth': 'state of birth',
-'per:stateorprovince_of_death': 'state of death',
-'per:stateorprovinces_of_residence': 'state of residence',
-'per:title': 'title'}
 
 # Evaluate the model on unseen data using predefined metrics. 
 def test(conf: omegaconf.DictConfig) -> None:
@@ -96,10 +56,16 @@ def test(conf: omegaconf.DictConfig) -> None:
 
     # main module declaration
     if conf.checkpoint_path:
-        pl_module = BasePLModule.load_from_checkpoint(checkpoint_path=conf.checkpoint_path, config=config, tokenizer=tokenizer, model=model)
-        pl_module.config = config
-        pl_module.tokenizer = tokenizer
-        pl_module.model = model
+        base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        checkpoint_abs_path = os.path.join(base_path, conf.checkpoint_path)
+        checkpoint = torch.load(checkpoint_abs_path, map_location=torch.device('cpu'))
+        state_dict = checkpoint['state_dict']
+        # Adjust the keys by removing the first occurrence of 'model.' The issue I had is that the state dict keys of
+        # the checkpoint was prefixed with `model.`, so I had to remove it to match the model's state dict keys.
+        # E.g. A key in the model's state dict is `model.shared.weight`, but in the checkpoint it is `model.model.shared.weight`.
+        adjusted_state_dict = {key.partition('model.')[2]: value for key, value in state_dict.items() if key.startswith('model.')}
+        model.load_state_dict(adjusted_state_dict)
+        pl_module = BasePLModule(conf, config, tokenizer, model)
     else:
         pl_module = BasePLModule(conf, config, tokenizer, model)  # Adjust as per your constructor requirements
 
@@ -125,7 +91,6 @@ def test(conf: omegaconf.DictConfig) -> None:
     # these processes, ensuring that they leverage the same distributed and accelerated 
     # environment setup that is used during training.
     trainer.test(pl_module, dataloaders=pl_data_module.test_dataloader())
-
 
 @hydra.main(config_path='../conf', config_name='root')
 def main(conf: omegaconf.DictConfig):
