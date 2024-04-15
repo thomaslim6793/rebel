@@ -52,7 +52,7 @@ fi
 conda activate cs6120-project
 
 # Check PyTorch and CUDA version
-python -c "import torch; assert torch.__version__ == '$DESIRED_PYTORCH_VERSION+$DESIRED_CUDA_VERSION' and 'cu118' in torch.version.cuda, 'Version mismatch'"
+python -c "import torch; print('torch version is: ', torch.__version__); assert torch.__version__ == '$DESIRED_PYTORCH_VERSION+$DESIRED_CUDA_VERSION' and 'cu118' in torch.version.cuda, 'Version mismatch'"
 
 # Only update if assertion fails
 if [ $? -ne 0 ]; then
