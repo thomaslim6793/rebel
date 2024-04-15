@@ -54,12 +54,20 @@ conda activate cs6120-project
 # Check PyTorch and CUDA version
 python -c "import torch; print('torch version is: ', torch.__version__); assert torch.__version__ == '$DESIRED_PYTORCH_VERSION+$DESIRED_CUDA_VERSION' and 'cu118' in torch.version.cuda, 'Version mismatch'"
 
-# Only update if assertion fails
-if [ $? -ne 0 ]; then
+# Check the current version of PyTorch
+installed_pytorch_version=$(python -c "import torch; print(torch.__version__)")
+
+# Compare the installed version with the desired version
+if [ "$installed_pytorch_version" != "$DESIRED_PYTORCH_VERSION+cu118" ]; then
     echo "Updating PyTorch and dependencies to match CUDA 11.8..."
     pip uninstall -y torch torchvision torchaudio
     pip install torch==$DESIRED_PYTORCH_VERSION --index-url https://download.pytorch.org/whl/cu118
+    # Optionally reinstall torchvision and torchaudio if needed
+    # pip install torchvision==$DESIRED_TORCHVISION_VERSION torchaudio==$DESIRED_TORCHAUDIO_VERSION --index-url https://download.pytorch.org/whl/cu118
+else
+    echo "PyTorch version matches the desired version ($DESIRED_PYTORCH_VERSION+cu118). No update necessary."
 fi
+
 
 pip install -r requirements.txt
 
