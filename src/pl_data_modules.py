@@ -1,5 +1,5 @@
 from typing import Any, Union, List, Optional
-
+import os
 from omegaconf import DictConfig
 
 import torch
@@ -95,15 +95,29 @@ class BasePLDataModule(pl.LightningDataModule):
         self.conf = conf
         self.tokenizer = tokenizer
         self.model = model
+
+        # Just to get the absolute path of the dataset files, where the paths in the
+        # yaml config is relative path, but we need absolute path to load the dataset.
+        base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.dataset_name_abs_path = str(os.path.join(base_path, conf.dataset_name))
+        self.train_file_abs_path = str(os.path.join(base_path, conf.train_file))
+        self.validation_file_abs_path = str(os.path.join(base_path, conf.validation_file))
+        self.test_file_abs_path = str(os.path.join(base_path, conf.test_file))
+
         if conf.relations_file:
-            self.datasets = load_dataset(conf.dataset_name, data_files={'train': conf.train_file, 
-                                                                        'dev': conf.validation_file, 
-                                                                        'test': conf.test_file, 
-                                                                        'relations': conf.relations_file})
+            self.relations_file_abs_path = str(os.path.join(base_path, conf.relations_file))
         else:
-            self.datasets = load_dataset(conf.dataset_name, data_files={'train': conf.train_file, 
-                                                                        'dev': conf.validation_file, 
-                                                                        'test': conf.test_file})
+            self.relations_file_abs_path = ""
+
+        if conf.relations_file:
+            self.datasets = load_dataset(self.dataset_name_abs_path, data_files={'train': self.train_file_abs_path, 
+                                                                        'dev': self.validation_file_abs_path, 
+                                                                        'test': self.test_file_abs_path, 
+                                                                        'relations': self.relations_file_abs_path})
+        else:
+            self.datasets = load_dataset(self.dataset_name_abs_path, data_files={'train': self.train_file_abs_path, 
+                                                                        'dev': self.validation_file_abs_path, 
+                                                                        'test': self.test_file_abs_path})
         set_caching_enabled(True)
         self.prefix = conf.source_prefix if conf.source_prefix is not None else ""
         self.column_names = self.datasets["train"].column_names
@@ -139,7 +153,7 @@ class BasePLDataModule(pl.LightningDataModule):
             num_proc=self.conf.preprocessing_num_workers,
             remove_columns=self.column_names,
             load_from_cache_file=not self.conf.overwrite_cache,
-            cache_file_name=self.conf.train_file.replace('.jsonl', '-') + self.conf.dataset_name.split('/')[-1].replace('.py', '.cache'),
+            cache_file_name=self.train_file_abs_path.replace('.jsonl', '-') + self.dataset_name_abs_path.split('/')[-1].replace('.py', '.cache'),
         )
 
         if self.conf.do_eval:
@@ -155,7 +169,7 @@ class BasePLDataModule(pl.LightningDataModule):
                 num_proc=self.conf.preprocessing_num_workers,
                 remove_columns=self.column_names,
                 load_from_cache_file=not self.conf.overwrite_cache,
-                cache_file_name=self.conf.validation_file.replace('.jsonl', '-') + self.conf.dataset_name.split('/')[-1].replace('.py', '.cache'),
+                cache_file_name=self.validation_file_abs_path.replace('.jsonl', '-') + self.dataset_name_abs_path.split('/')[-1].replace('.py', '.cache'),
             )
 
         if self.conf.do_predict:
@@ -171,7 +185,7 @@ class BasePLDataModule(pl.LightningDataModule):
                 num_proc=self.conf.preprocessing_num_workers,
                 remove_columns=self.column_names,
                 load_from_cache_file=not self.conf.overwrite_cache,
-                cache_file_name=self.conf.test_file.replace('.jsonl', '-') + self.conf.dataset_name.split('/')[-1].replace('.py', '.cache'),
+                cache_file_name=self.test_file_abs_path.replace('.jsonl', '-') + self.dataset_name_abs_path.split('/')[-1].replace('.py', '.cache'),
             )
 
     # This method is triggered to return the DataLoader object for training, after the training data has been prepared. 
