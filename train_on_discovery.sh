@@ -1,10 +1,9 @@
 #!/bin/bash
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
-#SBATCH --gres=gpu:1
-#SBATCH --time=04:00:00
+#SBATCH --time=08:00:00
 #SBATCH --job-name=REBEL_bio_train_on_gpu
-#SBATCH --mem=4GB
+#SBATCH --mem=16GB
 #SBATCH --ntasks=1
 #SBATCH --output=myjob.%j.out
 #SBATCH --error=myjob.%j.err
@@ -57,7 +56,7 @@ python -c "import torch; assert torch.__version__ == '$DESIRED_PYTORCH_VERSION' 
 # Only update if assertion fails
 if [ $? -ne 0 ]; then
     echo "Updating PyTorch and dependencies to match CUDA 11.8..."
-    pip uninstall -y torch torchvision torchaudio
+    pip uninstall -y torch
     pip install torch==$DESIRED_PYTORCH_VERSION --index-url https://download.pytorch.org/whl/cu118
 fi
 

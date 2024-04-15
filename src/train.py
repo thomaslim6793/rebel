@@ -120,7 +120,7 @@ def train(conf: omegaconf.DictConfig) -> None:
     if torch.cuda.is_available():
         # Create a tensor and move it to GPU
         test_tensor = torch.tensor([1.0], device='cuda')
-        print("CUDA is available! Test tensor on GPU:", test_tensor)
+        print("CUDA is available, Test tensor on GPU:", test_tensor)
         # Additional diagnostics: GPU properties
         print("CUDA Device Name:", torch.cuda.get_device_name(0))
         print("CUDA Device Memory:", torch.cuda.get_device_properties(0).total_memory / 1e9, "GB")
