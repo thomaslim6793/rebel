@@ -1,0 +1,2 @@
+epoch,step,test_F1_micro,test_loss,test_prec_micro,test_recall_micro
+0,0,0.0,4.143472671508789,0.0,0.0
