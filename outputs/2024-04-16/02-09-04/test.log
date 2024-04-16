@@ -1,0 +1,3 @@
+[2024-04-16 02:09:07,750][root][INFO] - generating examples from = /Users/thomaslim/rebel/data/chemprot/chemprot_train.jsonl
+[2024-04-16 02:09:07,779][root][INFO] - generating examples from = /Users/thomaslim/rebel/data/chemprot/chemprot_sample.jsonl
+[2024-04-16 02:09:07,781][root][INFO] - generating examples from = /Users/thomaslim/rebel/data/chemprot/test.jsonl

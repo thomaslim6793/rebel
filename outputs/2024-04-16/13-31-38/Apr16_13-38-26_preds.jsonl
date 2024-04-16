@@ -1,4 +1,4 @@
-Model name: Babelscape/rebel-large
+Model name: models/REBEL_biorel/last.ckpt
 Test file: data/chemprot/test.jsonl
 predictions 	 labels 
 [{'head': 'platinum', 'type': 'may_treat', 'tail': 'the'}] 	 [{'head': 'gefitinib', 'type': 'Downregulator', 'tail': 'Epidermal growth factor receptor'}, {'head': 'Iressa', 'type': 'Downregulator', 'tail': 'Epidermal growth factor receptor'}, {'head': 'ZD1839', 'type': 'Downregulator', 'tail': 'Epidermal growth factor receptor'}, {'head': 'erlotinib', 'type': 'Downregulator', 'tail': 'Epidermal growth factor receptor'}, {'head': 'Tarceva', 'type': 'Downregulator', 'tail': 'Epidermal growth factor receptor'}, {'head': 'OSI-774', 'type': 'Downregulator', 'tail': 'Epidermal growth factor receptor'}] 
