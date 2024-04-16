@@ -1,0 +1,1162 @@
+Checking for NVIDIA Driver version...
+NVIDIA Driver Version: 545.23.08
+Checking for CUDA and its version...
+CUDA version 11.8 is available.
+Checking Conda environment...
+Environment cs6120-project already exists.
+PyTorch version matches the desired version (2.2.2+cu118). No update necessary.
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: aiohttp==3.9.3 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 1)) (3.9.3)
+Requirement already satisfied: aiosignal==1.3.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 2)) (1.3.1)
+Requirement already satisfied: antlr4-python3-runtime==4.9.3 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 3)) (4.9.3)
+Requirement already satisfied: appdirs==1.4.4 in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (1.4.4)
+Requirement already satisfied: attrs==23.2.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 5)) (23.2.0)
+Requirement already satisfied: bioc==2.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 6)) (2.1)
+Requirement already satisfied: certifi==2024.2.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 7)) (2024.2.2)
+Requirement already satisfied: charset-normalizer==3.3.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 8)) (3.3.2)
+Requirement already satisfied: click==8.1.7 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 9)) (8.1.7)
+Requirement already satisfied: datasets==2.18.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 10)) (2.18.0)
+Requirement already satisfied: dill==0.3.8 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 11)) (0.3.8)
+Requirement already satisfied: docker-pycreds==0.4.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 12)) (0.4.0)
+Requirement already satisfied: docopt==0.6.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 13)) (0.6.2)
+Requirement already satisfied: filelock==3.13.3 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 14)) (3.13.3)
+Requirement already satisfied: frozenlist==1.4.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 15)) (1.4.1)
+Requirement already satisfied: fsspec==2024.2.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 16)) (2024.2.0)
+Requirement already satisfied: gitdb==4.0.11 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 17)) (4.0.11)
+Requirement already satisfied: GitPython==3.1.43 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 18)) (3.1.43)
+Requirement already satisfied: huggingface-hub==0.22.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 19)) (0.22.2)
+Requirement already satisfied: hydra-core==1.3.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 20)) (1.3.2)
+Requirement already satisfied: idna==3.6 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 21)) (3.6)
+Requirement already satisfied: intervaltree==3.1.0 in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from -r requirements.txt (line 22)) (3.1.0)
+Requirement already satisfied: Jinja2==3.1.3 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 23)) (3.1.3)
+Requirement already satisfied: joblib==1.4.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 24)) (1.4.0)
+Requirement already satisfied: jsonlines==4.0.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 25)) (4.0.0)
+Requirement already satisfied: lightning-utilities==0.11.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 26)) (0.11.2)
+Requirement already satisfied: lxml==5.2.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 27)) (5.2.1)
+Requirement already satisfied: MarkupSafe==2.1.5 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 28)) (2.1.5)
+Requirement already satisfied: mpmath==1.3.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 29)) (1.3.0)
+Requirement already satisfied: multidict==6.0.5 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 30)) (6.0.5)
+Requirement already satisfied: multiprocess==0.70.16 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 31)) (0.70.16)
+Requirement already satisfied: nltk==3.8.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 32)) (3.8.1)
+Requirement already satisfied: numpy==1.26.4 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 33)) (1.26.4)
+Requirement already satisfied: omegaconf==2.3.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 34)) (2.3.0)
+Requirement already satisfied: pandas==2.2.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 35)) (2.2.1)
+Requirement already satisfied: pillow==10.3.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 36)) (10.3.0)
+Requirement already satisfied: protobuf==4.25.3 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 37)) (4.25.3)
+Requirement already satisfied: pyarrow==15.0.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 38)) (15.0.2)
+Requirement already satisfied: pyarrow-hotfix==0.6 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 39)) (0.6)
+Requirement already satisfied: pytorch-lightning==2.2.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 40)) (2.2.2)
+Requirement already satisfied: pytz==2024.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 41)) (2024.1)
+Requirement already satisfied: PyYAML==6.0.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 42)) (6.0.1)
+Requirement already satisfied: regex==2023.12.25 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 43)) (2023.12.25)
+Requirement already satisfied: requests==2.31.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 44)) (2.31.0)
+Requirement already satisfied: safetensors==0.4.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 45)) (0.4.2)
+Requirement already satisfied: sentry-sdk==1.45.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 46)) (1.45.0)
+Requirement already satisfied: setproctitle==1.3.3 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 47)) (1.3.3)
+Requirement already satisfied: smmap==5.0.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 48)) (5.0.1)
+Requirement already satisfied: sortedcontainers==2.4.0 in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from -r requirements.txt (line 49)) (2.4.0)
+Requirement already satisfied: sympy==1.12 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 50)) (1.12)
+Requirement already satisfied: tokenizers==0.15.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 51)) (0.15.2)
+Requirement already satisfied: torchmetrics==1.3.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 52)) (1.3.2)
+Requirement already satisfied: tqdm==4.66.2 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 53)) (4.66.2)
+Requirement already satisfied: transformers==4.39.3 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 54)) (4.39.3)
+Requirement already satisfied: tzdata==2024.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 55)) (2024.1)
+Requirement already satisfied: urllib3==2.2.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 56)) (2.2.1)
+Requirement already satisfied: wandb==0.16.6 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 57)) (0.16.6)
+Requirement already satisfied: xxhash==3.4.1 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 58)) (3.4.1)
+Requirement already satisfied: yarl==1.9.4 in /home/lim.hyu/.local/lib/python3.9/site-packages (from -r requirements.txt (line 59)) (1.9.4)
+Requirement already satisfied: async-timeout<5.0,>=4.0 in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from aiohttp==3.9.3->-r requirements.txt (line 1)) (4.0.1)
+Requirement already satisfied: packaging in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from datasets==2.18.0->-r requirements.txt (line 10)) (21.3)
+Requirement already satisfied: six>=1.4.0 in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from docker-pycreds==0.4.0->-r requirements.txt (line 12)) (1.16.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /home/lim.hyu/.local/lib/python3.9/site-packages (from huggingface-hub==0.22.2->-r requirements.txt (line 19)) (4.10.0)
+Requirement already satisfied: setuptools in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from lightning-utilities==0.11.2->-r requirements.txt (line 26)) (61.2.0)
+Requirement already satisfied: python-dateutil>=2.8.2 in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from pandas==2.2.1->-r requirements.txt (line 35)) (2.8.2)
+Requirement already satisfied: torch>=1.13.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (2.2.2+cu118)
+Requirement already satisfied: psutil>=5.0.0 in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from wandb==0.16.6->-r requirements.txt (line 57)) (5.8.0)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from packaging->datasets==2.18.0->-r requirements.txt (line 10)) (3.0.4)
+Requirement already satisfied: nvidia-cuda-runtime-cu11==11.8.89 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (11.8.89)
+Requirement already satisfied: nvidia-nccl-cu11==2.19.3 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (2.19.3)
+Requirement already satisfied: nvidia-cuda-cupti-cu11==11.8.87 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (11.8.87)
+Requirement already satisfied: nvidia-cudnn-cu11==8.7.0.84 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (8.7.0.84)
+Requirement already satisfied: nvidia-cusparse-cu11==11.7.5.86 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (11.7.5.86)
+Requirement already satisfied: networkx in /shared/centos7/anaconda3/2022.05/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (2.7.1)
+Requirement already satisfied: triton==2.2.0 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (2.2.0)
+Requirement already satisfied: nvidia-cufft-cu11==10.9.0.58 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (10.9.0.58)
+Requirement already satisfied: nvidia-curand-cu11==10.3.0.86 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (10.3.0.86)
+Requirement already satisfied: nvidia-cusolver-cu11==11.4.1.48 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (11.4.1.48)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu11==11.8.89 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (11.8.89)
+Requirement already satisfied: nvidia-nvtx-cu11==11.8.86 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (11.8.86)
+Requirement already satisfied: nvidia-cublas-cu11==11.11.3.6 in /home/lim.hyu/.local/lib/python3.9/site-packages (from torch>=1.13.0->pytorch-lightning==2.2.2->-r requirements.txt (line 40)) (11.11.3.6)
+Now running the Python script to test our model
+
+Testing: |          | 0/? [00:00<?, ?it/s]
+Testing:   0%|          | 0/927 [00:00<?, ?it/s]
+Testing DataLoader 0:   0%|          | 0/927 [00:00<?, ?it/s]
+Testing DataLoader 0:   0%|          | 1/927 [00:01<23:23,  0.66it/s]
+Testing DataLoader 0:   0%|          | 2/927 [00:02<18:26,  0.84it/s]
+Testing DataLoader 0:   0%|          | 3/927 [00:03<16:21,  0.94it/s]
+Testing DataLoader 0:   0%|          | 4/927 [00:04<15:28,  0.99it/s]
+Testing DataLoader 0:   1%|          | 5/927 [00:04<14:38,  1.05it/s]
+Testing DataLoader 0:   1%|          | 6/927 [00:05<14:12,  1.08it/s]
+Testing DataLoader 0:   1%|          | 7/927 [00:07<15:45,  0.97it/s]
+Testing DataLoader 0:   1%|          | 8/927 [00:07<15:14,  1.01it/s]
+Testing DataLoader 0:   1%|          | 9/927 [00:08<14:41,  1.04it/s]
+Testing DataLoader 0:   1%|          | 10/927 [00:09<14:27,  1.06it/s]
+Testing DataLoader 0:   1%|          | 11/927 [00:10<13:59,  1.09it/s]
+Testing DataLoader 0:   1%|▏         | 12/927 [00:10<13:36,  1.12it/s]
+Testing DataLoader 0:   1%|▏         | 13/927 [00:11<13:16,  1.15it/s]
+Testing DataLoader 0:   2%|▏         | 14/927 [00:12<13:06,  1.16it/s]
+Testing DataLoader 0:   2%|▏         | 15/927 [00:12<12:57,  1.17it/s]
+Testing DataLoader 0:   2%|▏         | 16/927 [00:15<14:37,  1.04it/s]
+Testing DataLoader 0:   2%|▏         | 17/927 [00:16<14:23,  1.05it/s]
+Testing DataLoader 0:   2%|▏         | 18/927 [00:16<14:12,  1.07it/s]
+Testing DataLoader 0:   2%|▏         | 19/927 [00:17<14:15,  1.06it/s]
+Testing DataLoader 0:   2%|▏         | 20/927 [00:18<14:02,  1.08it/s]
+Testing DataLoader 0:   2%|▏         | 21/927 [00:19<14:12,  1.06it/s]
+Testing DataLoader 0:   2%|▏         | 22/927 [00:21<14:39,  1.03it/s]
+Testing DataLoader 0:   2%|▏         | 23/927 [00:22<14:31,  1.04it/s]
+Testing DataLoader 0:   3%|▎         | 24/927 [00:22<14:21,  1.05it/s]
+Testing DataLoader 0:   3%|▎         | 25/927 [00:23<14:15,  1.05it/s]
+Testing DataLoader 0:   3%|▎         | 26/927 [00:25<14:30,  1.03it/s]
+Testing DataLoader 0:   3%|▎         | 27/927 [00:25<14:24,  1.04it/s]
+Testing DataLoader 0:   3%|▎         | 28/927 [00:26<14:20,  1.04it/s]
+Testing DataLoader 0:   3%|▎         | 29/927 [00:28<14:27,  1.03it/s]
+Testing DataLoader 0:   3%|▎         | 30/927 [00:28<14:25,  1.04it/s]
+Testing DataLoader 0:   3%|▎         | 31/927 [00:29<14:15,  1.05it/s]
+Testing DataLoader 0:   3%|▎         | 32/927 [00:30<14:23,  1.04it/s]
+Testing DataLoader 0:   4%|▎         | 33/927 [00:31<14:12,  1.05it/s]
+Testing DataLoader 0:   4%|▎         | 34/927 [00:32<14:07,  1.05it/s]
+Testing DataLoader 0:   4%|▍         | 35/927 [00:33<14:14,  1.04it/s]
+Testing DataLoader 0:   4%|▍         | 36/927 [00:34<14:06,  1.05it/s]
+Testing DataLoader 0:   4%|▍         | 37/927 [00:35<14:04,  1.05it/s]
+Testing DataLoader 0:   4%|▍         | 38/927 [00:36<14:12,  1.04it/s]
+Testing DataLoader 0:   4%|▍         | 39/927 [00:37<14:04,  1.05it/s]
+Testing DataLoader 0:   4%|▍         | 40/927 [00:38<14:10,  1.04it/s]
+Testing DataLoader 0:   4%|▍         | 41/927 [00:39<14:08,  1.04it/s]
+Testing DataLoader 0:   5%|▍         | 42/927 [00:39<13:59,  1.05it/s]
+Testing DataLoader 0:   5%|▍         | 43/927 [00:41<14:05,  1.05it/s]
+Testing DataLoader 0:   5%|▍         | 44/927 [00:41<13:57,  1.05it/s]
+Testing DataLoader 0:   5%|▍         | 45/927 [00:42<13:59,  1.05it/s]
+Testing DataLoader 0:   5%|▍         | 46/927 [00:43<13:58,  1.05it/s]
+Testing DataLoader 0:   5%|▌         | 47/927 [00:44<13:55,  1.05it/s]
+Testing DataLoader 0:   5%|▌         | 48/927 [00:45<13:48,  1.06it/s]
+Testing DataLoader 0:   5%|▌         | 49/927 [00:45<13:42,  1.07it/s]
+Testing DataLoader 0:   5%|▌         | 50/927 [00:46<13:40,  1.07it/s]
+Testing DataLoader 0:   6%|▌         | 51/927 [00:47<13:37,  1.07it/s]
+Testing DataLoader 0:   6%|▌         | 52/927 [00:48<13:32,  1.08it/s]
+Testing DataLoader 0:   6%|▌         | 53/927 [00:49<13:28,  1.08it/s]
+Testing DataLoader 0:   6%|▌         | 54/927 [00:49<13:22,  1.09it/s]
+Testing DataLoader 0:   6%|▌         | 55/927 [00:50<13:19,  1.09it/s]
+Testing DataLoader 0:   6%|▌         | 56/927 [00:51<13:18,  1.09it/s]
+Testing DataLoader 0:   6%|▌         | 57/927 [00:52<13:18,  1.09it/s]
+Testing DataLoader 0:   6%|▋         | 58/927 [00:53<13:15,  1.09it/s]
+Testing DataLoader 0:   6%|▋         | 59/927 [00:53<13:10,  1.10it/s]
+Testing DataLoader 0:   6%|▋         | 60/927 [00:54<13:06,  1.10it/s]
+Testing DataLoader 0:   7%|▋         | 61/927 [00:55<13:07,  1.10it/s]
+Testing DataLoader 0:   7%|▋         | 62/927 [00:56<13:07,  1.10it/s]
+Testing DataLoader 0:   7%|▋         | 63/927 [00:58<13:25,  1.07it/s]
+Testing DataLoader 0:   7%|▋         | 64/927 [00:59<13:22,  1.08it/s]
+Testing DataLoader 0:   7%|▋         | 65/927 [01:00<13:18,  1.08it/s]
+Testing DataLoader 0:   7%|▋         | 66/927 [01:00<13:15,  1.08it/s]
+Testing DataLoader 0:   7%|▋         | 67/927 [01:02<13:16,  1.08it/s]
+Testing DataLoader 0:   7%|▋         | 68/927 [01:02<13:15,  1.08it/s]
+Testing DataLoader 0:   7%|▋         | 69/927 [01:03<13:13,  1.08it/s]
+Testing DataLoader 0:   8%|▊         | 70/927 [01:04<13:13,  1.08it/s]
+Testing DataLoader 0:   8%|▊         | 71/927 [01:05<13:11,  1.08it/s]
+Testing DataLoader 0:   8%|▊         | 72/927 [01:06<13:09,  1.08it/s]
+Testing DataLoader 0:   8%|▊         | 73/927 [01:07<13:07,  1.08it/s]
+Testing DataLoader 0:   8%|▊         | 74/927 [01:08<13:05,  1.09it/s]
+Testing DataLoader 0:   8%|▊         | 75/927 [01:09<13:05,  1.09it/s]
+Testing DataLoader 0:   8%|▊         | 76/927 [01:09<13:01,  1.09it/s]
+Testing DataLoader 0:   8%|▊         | 77/927 [01:10<12:56,  1.09it/s]
+Testing DataLoader 0:   8%|▊         | 78/927 [01:11<12:55,  1.10it/s]
+Testing DataLoader 0:   9%|▊         | 79/927 [01:11<12:50,  1.10it/s]
+Testing DataLoader 0:   9%|▊         | 80/927 [01:12<12:49,  1.10it/s]
+Testing DataLoader 0:   9%|▊         | 81/927 [01:13<12:46,  1.10it/s]
+Testing DataLoader 0:   9%|▉         | 82/927 [01:14<12:44,  1.11it/s]
+Testing DataLoader 0:   9%|▉         | 83/927 [01:15<12:45,  1.10it/s]
+Testing DataLoader 0:   9%|▉         | 84/927 [01:16<12:52,  1.09it/s]
+Testing DataLoader 0:   9%|▉         | 85/927 [01:18<12:57,  1.08it/s]
+Testing DataLoader 0:   9%|▉         | 86/927 [01:19<12:54,  1.09it/s]
+Testing DataLoader 0:   9%|▉         | 87/927 [01:19<12:50,  1.09it/s]
+Testing DataLoader 0:   9%|▉         | 88/927 [01:20<12:48,  1.09it/s]
+Testing DataLoader 0:  10%|▉         | 89/927 [01:21<12:50,  1.09it/s]
+Testing DataLoader 0:  10%|▉         | 90/927 [01:23<12:53,  1.08it/s]
+Testing DataLoader 0:  10%|▉         | 91/927 [01:23<12:50,  1.09it/s]
+Testing DataLoader 0:  10%|▉         | 92/927 [01:24<12:48,  1.09it/s]
+Testing DataLoader 0:  10%|█         | 93/927 [01:25<12:45,  1.09it/s]
+Testing DataLoader 0:  10%|█         | 94/927 [01:26<12:44,  1.09it/s]
+Testing DataLoader 0:  10%|█         | 95/927 [01:27<12:45,  1.09it/s]
+Testing DataLoader 0:  10%|█         | 96/927 [01:28<12:43,  1.09it/s]
+Testing DataLoader 0:  10%|█         | 97/927 [01:28<12:40,  1.09it/s]
+Testing DataLoader 0:  11%|█         | 98/927 [01:29<12:38,  1.09it/s]
+Testing DataLoader 0:  11%|█         | 99/927 [01:30<12:35,  1.10it/s]
+Testing DataLoader 0:  11%|█         | 100/927 [01:31<12:34,  1.10it/s]
+Testing DataLoader 0:  11%|█         | 101/927 [01:32<12:32,  1.10it/s]
+Testing DataLoader 0:  11%|█         | 102/927 [01:32<12:29,  1.10it/s]
+Testing DataLoader 0:  11%|█         | 103/927 [01:33<12:27,  1.10it/s]
+Testing DataLoader 0:  11%|█         | 104/927 [01:34<12:26,  1.10it/s]
+Testing DataLoader 0:  11%|█▏        | 105/927 [01:35<12:27,  1.10it/s]
+Testing DataLoader 0:  11%|█▏        | 106/927 [01:36<12:25,  1.10it/s]
+Testing DataLoader 0:  12%|█▏        | 107/927 [01:36<12:23,  1.10it/s]
+Testing DataLoader 0:  12%|█▏        | 108/927 [01:37<12:20,  1.11it/s]
+Testing DataLoader 0:  12%|█▏        | 109/927 [01:38<12:19,  1.11it/s]
+Testing DataLoader 0:  12%|█▏        | 110/927 [01:39<12:16,  1.11it/s]
+Testing DataLoader 0:  12%|█▏        | 111/927 [01:39<12:14,  1.11it/s]
+Testing DataLoader 0:  12%|█▏        | 112/927 [01:40<12:14,  1.11it/s]
+Testing DataLoader 0:  12%|█▏        | 113/927 [01:43<12:27,  1.09it/s]
+Testing DataLoader 0:  12%|█▏        | 114/927 [01:44<12:25,  1.09it/s]
+Testing DataLoader 0:  12%|█▏        | 115/927 [01:45<12:23,  1.09it/s]
+Testing DataLoader 0:  13%|█▎        | 116/927 [01:46<12:21,  1.09it/s]
+Testing DataLoader 0:  13%|█▎        | 117/927 [01:47<12:22,  1.09it/s]
+Testing DataLoader 0:  13%|█▎        | 118/927 [01:48<12:21,  1.09it/s]
+Testing DataLoader 0:  13%|█▎        | 119/927 [01:49<12:20,  1.09it/s]
+Testing DataLoader 0:  13%|█▎        | 120/927 [01:50<12:24,  1.08it/s]
+Testing DataLoader 0:  13%|█▎        | 121/927 [01:52<12:27,  1.08it/s]
+Testing DataLoader 0:  13%|█▎        | 122/927 [01:53<12:27,  1.08it/s]
+Testing DataLoader 0:  13%|█▎        | 123/927 [01:54<12:25,  1.08it/s]
+Testing DataLoader 0:  13%|█▎        | 124/927 [01:54<12:22,  1.08it/s]
+Testing DataLoader 0:  13%|█▎        | 125/927 [01:55<12:23,  1.08it/s]
+Testing DataLoader 0:  14%|█▎        | 126/927 [01:56<12:20,  1.08it/s]
+Testing DataLoader 0:  14%|█▎        | 127/927 [01:57<12:19,  1.08it/s]
+Testing DataLoader 0:  14%|█▍        | 128/927 [01:58<12:17,  1.08it/s]
+Testing DataLoader 0:  14%|█▍        | 129/927 [01:58<12:15,  1.08it/s]
+Testing DataLoader 0:  14%|█▍        | 130/927 [02:00<12:16,  1.08it/s]
+Testing DataLoader 0:  14%|█▍        | 131/927 [02:00<12:14,  1.08it/s]
+Testing DataLoader 0:  14%|█▍        | 132/927 [02:01<12:13,  1.08it/s]
+Testing DataLoader 0:  14%|█▍        | 133/927 [02:03<12:14,  1.08it/s]
+Testing DataLoader 0:  14%|█▍        | 134/927 [02:03<12:11,  1.08it/s]
+Testing DataLoader 0:  15%|█▍        | 135/927 [02:04<12:10,  1.08it/s]
+Testing DataLoader 0:  15%|█▍        | 136/927 [02:05<12:07,  1.09it/s]
+Testing DataLoader 0:  15%|█▍        | 137/927 [02:05<12:04,  1.09it/s]
+Testing DataLoader 0:  15%|█▍        | 138/927 [02:06<12:02,  1.09it/s]
+Testing DataLoader 0:  15%|█▍        | 139/927 [02:07<12:00,  1.09it/s]
+Testing DataLoader 0:  15%|█▌        | 140/927 [02:07<11:59,  1.09it/s]
+Testing DataLoader 0:  15%|█▌        | 141/927 [02:09<12:00,  1.09it/s]
+Testing DataLoader 0:  15%|█▌        | 142/927 [02:10<11:59,  1.09it/s]
+Testing DataLoader 0:  15%|█▌        | 143/927 [02:11<11:58,  1.09it/s]
+Testing DataLoader 0:  16%|█▌        | 144/927 [02:12<11:57,  1.09it/s]
+Testing DataLoader 0:  16%|█▌        | 145/927 [02:12<11:55,  1.09it/s]
+Testing DataLoader 0:  16%|█▌        | 146/927 [02:13<11:53,  1.10it/s]
+Testing DataLoader 0:  16%|█▌        | 147/927 [02:14<11:51,  1.10it/s]
+Testing DataLoader 0:  16%|█▌        | 148/927 [02:14<11:49,  1.10it/s]
+Testing DataLoader 0:  16%|█▌        | 149/927 [02:15<11:46,  1.10it/s]
+Testing DataLoader 0:  16%|█▌        | 150/927 [02:16<11:46,  1.10it/s]
+Testing DataLoader 0:  16%|█▋        | 151/927 [02:17<11:47,  1.10it/s]
+Testing DataLoader 0:  16%|█▋        | 152/927 [02:19<11:48,  1.09it/s]
+Testing DataLoader 0:  17%|█▋        | 153/927 [02:20<11:52,  1.09it/s]
+Testing DataLoader 0:  17%|█▋        | 154/927 [02:21<11:50,  1.09it/s]
+Testing DataLoader 0:  17%|█▋        | 155/927 [02:22<11:48,  1.09it/s]
+Testing DataLoader 0:  17%|█▋        | 156/927 [02:23<11:47,  1.09it/s]
+Testing DataLoader 0:  17%|█▋        | 157/927 [02:24<11:48,  1.09it/s]
+Testing DataLoader 0:  17%|█▋        | 158/927 [02:25<11:48,  1.09it/s]
+Testing DataLoader 0:  17%|█▋        | 159/927 [02:26<11:47,  1.09it/s]
+Testing DataLoader 0:  17%|█▋        | 160/927 [02:27<11:45,  1.09it/s]
+Testing DataLoader 0:  17%|█▋        | 161/927 [02:28<11:47,  1.08it/s]
+Testing DataLoader 0:  17%|█▋        | 162/927 [02:29<11:45,  1.08it/s]
+Testing DataLoader 0:  18%|█▊        | 163/927 [02:30<11:43,  1.09it/s]
+Testing DataLoader 0:  18%|█▊        | 164/927 [02:30<11:42,  1.09it/s]
+Testing DataLoader 0:  18%|█▊        | 165/927 [02:31<11:41,  1.09it/s]
+Testing DataLoader 0:  18%|█▊        | 166/927 [02:32<11:38,  1.09it/s]
+Testing DataLoader 0:  18%|█▊        | 167/927 [02:33<11:37,  1.09it/s]
+Testing DataLoader 0:  18%|█▊        | 168/927 [02:33<11:35,  1.09it/s]
+Testing DataLoader 0:  18%|█▊        | 169/927 [02:34<11:34,  1.09it/s]
+Testing DataLoader 0:  18%|█▊        | 170/927 [02:35<11:33,  1.09it/s]
+Testing DataLoader 0:  18%|█▊        | 171/927 [02:36<11:31,  1.09it/s]
+Testing DataLoader 0:  19%|█▊        | 172/927 [02:37<11:29,  1.10it/s]
+Testing DataLoader 0:  19%|█▊        | 173/927 [02:37<11:27,  1.10it/s]
+Testing DataLoader 0:  19%|█▉        | 174/927 [02:38<11:25,  1.10it/s]
+Testing DataLoader 0:  19%|█▉        | 175/927 [02:39<11:24,  1.10it/s]
+Testing DataLoader 0:  19%|█▉        | 176/927 [02:40<11:23,  1.10it/s]
+Testing DataLoader 0:  19%|█▉        | 177/927 [02:41<11:22,  1.10it/s]
+Testing DataLoader 0:  19%|█▉        | 178/927 [02:41<11:21,  1.10it/s]
+Testing DataLoader 0:  19%|█▉        | 179/927 [02:42<11:19,  1.10it/s]
+Testing DataLoader 0:  19%|█▉        | 180/927 [02:43<11:17,  1.10it/s]
+Testing DataLoader 0:  20%|█▉        | 181/927 [02:44<11:16,  1.10it/s]
+Testing DataLoader 0:  20%|█▉        | 182/927 [02:44<11:14,  1.10it/s]
+Testing DataLoader 0:  20%|█▉        | 183/927 [02:45<11:12,  1.11it/s]
+Testing DataLoader 0:  20%|█▉        | 184/927 [02:46<11:11,  1.11it/s]
+Testing DataLoader 0:  20%|█▉        | 185/927 [02:46<11:09,  1.11it/s]
+Testing DataLoader 0:  20%|██        | 186/927 [02:47<11:08,  1.11it/s]
+Testing DataLoader 0:  20%|██        | 187/927 [02:48<11:06,  1.11it/s]
+Testing DataLoader 0:  20%|██        | 188/927 [02:48<11:04,  1.11it/s]
+Testing DataLoader 0:  20%|██        | 189/927 [02:49<11:03,  1.11it/s]
+Testing DataLoader 0:  20%|██        | 190/927 [02:50<11:02,  1.11it/s]
+Testing DataLoader 0:  21%|██        | 191/927 [02:51<11:00,  1.11it/s]
+Testing DataLoader 0:  21%|██        | 192/927 [02:52<10:59,  1.11it/s]
+Testing DataLoader 0:  21%|██        | 193/927 [02:53<10:58,  1.11it/s]
+Testing DataLoader 0:  21%|██        | 194/927 [02:54<10:58,  1.11it/s]
+Testing DataLoader 0:  21%|██        | 195/927 [02:56<11:03,  1.10it/s]
+Testing DataLoader 0:  21%|██        | 196/927 [02:57<11:03,  1.10it/s]
+Testing DataLoader 0:  21%|██▏       | 197/927 [02:59<11:03,  1.10it/s]
+Testing DataLoader 0:  21%|██▏       | 198/927 [02:59<11:01,  1.10it/s]
+Testing DataLoader 0:  21%|██▏       | 199/927 [03:00<11:00,  1.10it/s]
+Testing DataLoader 0:  22%|██▏       | 200/927 [03:01<10:58,  1.10it/s]
+Testing DataLoader 0:  22%|██▏       | 201/927 [03:01<10:57,  1.10it/s]
+Testing DataLoader 0:  22%|██▏       | 202/927 [03:02<10:56,  1.10it/s]
+Testing DataLoader 0:  22%|██▏       | 203/927 [03:03<10:55,  1.10it/s]
+Testing DataLoader 0:  22%|██▏       | 204/927 [03:04<10:53,  1.11it/s]
+Testing DataLoader 0:  22%|██▏       | 205/927 [03:05<10:52,  1.11it/s]
+Testing DataLoader 0:  22%|██▏       | 206/927 [03:06<10:52,  1.10it/s]
+Testing DataLoader 0:  22%|██▏       | 207/927 [03:07<10:53,  1.10it/s]
+Testing DataLoader 0:  22%|██▏       | 208/927 [03:08<10:51,  1.10it/s]
+Testing DataLoader 0:  23%|██▎       | 209/927 [03:09<10:50,  1.10it/s]
+Testing DataLoader 0:  23%|██▎       | 210/927 [03:10<10:48,  1.11it/s]
+Testing DataLoader 0:  23%|██▎       | 211/927 [03:10<10:47,  1.11it/s]
+Testing DataLoader 0:  23%|██▎       | 212/927 [03:13<10:53,  1.09it/s]
+Testing DataLoader 0:  23%|██▎       | 213/927 [03:14<10:52,  1.10it/s]
+Testing DataLoader 0:  23%|██▎       | 214/927 [03:15<10:49,  1.10it/s]
+Testing DataLoader 0:  23%|██▎       | 215/927 [03:15<10:48,  1.10it/s]
+Testing DataLoader 0:  23%|██▎       | 216/927 [03:16<10:47,  1.10it/s]
+Testing DataLoader 0:  23%|██▎       | 217/927 [03:17<10:46,  1.10it/s]
+Testing DataLoader 0:  24%|██▎       | 218/927 [03:18<10:44,  1.10it/s]
+Testing DataLoader 0:  24%|██▎       | 219/927 [03:19<10:43,  1.10it/s]
+Testing DataLoader 0:  24%|██▎       | 220/927 [03:19<10:42,  1.10it/s]
+Testing DataLoader 0:  24%|██▍       | 221/927 [03:20<10:41,  1.10it/s]
+Testing DataLoader 0:  24%|██▍       | 222/927 [03:21<10:40,  1.10it/s]
+Testing DataLoader 0:  24%|██▍       | 223/927 [03:22<10:39,  1.10it/s]
+Testing DataLoader 0:  24%|██▍       | 224/927 [03:23<10:38,  1.10it/s]
+Testing DataLoader 0:  24%|██▍       | 225/927 [03:24<10:36,  1.10it/s]
+Testing DataLoader 0:  24%|██▍       | 226/927 [03:24<10:35,  1.10it/s]
+Testing DataLoader 0:  24%|██▍       | 227/927 [03:26<10:36,  1.10it/s]
+Testing DataLoader 0:  25%|██▍       | 228/927 [03:27<10:34,  1.10it/s]
+Testing DataLoader 0:  25%|██▍       | 229/927 [03:27<10:33,  1.10it/s]
+Testing DataLoader 0:  25%|██▍       | 230/927 [03:28<10:32,  1.10it/s]
+Testing DataLoader 0:  25%|██▍       | 231/927 [03:29<10:30,  1.10it/s]
+Testing DataLoader 0:  25%|██▌       | 232/927 [03:30<10:29,  1.10it/s]
+Testing DataLoader 0:  25%|██▌       | 233/927 [03:30<10:27,  1.11it/s]
+Testing DataLoader 0:  25%|██▌       | 234/927 [03:31<10:26,  1.11it/s]
+Testing DataLoader 0:  25%|██▌       | 235/927 [03:34<10:30,  1.10it/s]
+Testing DataLoader 0:  25%|██▌       | 236/927 [03:35<10:30,  1.10it/s]
+Testing DataLoader 0:  26%|██▌       | 237/927 [03:36<10:29,  1.10it/s]
+Testing DataLoader 0:  26%|██▌       | 238/927 [03:37<10:28,  1.10it/s]
+Testing DataLoader 0:  26%|██▌       | 239/927 [03:38<10:27,  1.10it/s]
+Testing DataLoader 0:  26%|██▌       | 240/927 [03:38<10:26,  1.10it/s]
+Testing DataLoader 0:  26%|██▌       | 241/927 [03:41<10:29,  1.09it/s]
+Testing DataLoader 0:  26%|██▌       | 242/927 [03:41<10:28,  1.09it/s]
+Testing DataLoader 0:  26%|██▌       | 243/927 [03:42<10:26,  1.09it/s]
+Testing DataLoader 0:  26%|██▋       | 244/927 [03:43<10:25,  1.09it/s]
+Testing DataLoader 0:  26%|██▋       | 245/927 [03:44<10:25,  1.09it/s]
+Testing DataLoader 0:  27%|██▋       | 246/927 [03:45<10:23,  1.09it/s]
+Testing DataLoader 0:  27%|██▋       | 247/927 [03:46<10:22,  1.09it/s]
+Testing DataLoader 0:  27%|██▋       | 248/927 [03:47<10:23,  1.09it/s]
+Testing DataLoader 0:  27%|██▋       | 249/927 [03:48<10:22,  1.09it/s]
+Testing DataLoader 0:  27%|██▋       | 250/927 [03:49<10:21,  1.09it/s]
+Testing DataLoader 0:  27%|██▋       | 251/927 [03:50<10:19,  1.09it/s]
+Testing DataLoader 0:  27%|██▋       | 252/927 [03:50<10:18,  1.09it/s]
+Testing DataLoader 0:  27%|██▋       | 253/927 [03:51<10:16,  1.09it/s]
+Testing DataLoader 0:  27%|██▋       | 254/927 [03:53<10:18,  1.09it/s]
+Testing DataLoader 0:  28%|██▊       | 255/927 [03:54<10:18,  1.09it/s]
+Testing DataLoader 0:  28%|██▊       | 256/927 [03:55<10:17,  1.09it/s]
+Testing DataLoader 0:  28%|██▊       | 257/927 [03:56<10:15,  1.09it/s]
+Testing DataLoader 0:  28%|██▊       | 258/927 [03:56<10:13,  1.09it/s]
+Testing DataLoader 0:  28%|██▊       | 259/927 [03:57<10:12,  1.09it/s]
+Testing DataLoader 0:  28%|██▊       | 260/927 [03:57<10:10,  1.09it/s]
+Testing DataLoader 0:  28%|██▊       | 261/927 [03:58<10:08,  1.09it/s]
+Testing DataLoader 0:  28%|██▊       | 262/927 [03:59<10:07,  1.09it/s]
+Testing DataLoader 0:  28%|██▊       | 263/927 [04:00<10:05,  1.10it/s]
+Testing DataLoader 0:  28%|██▊       | 264/927 [04:00<10:04,  1.10it/s]
+Testing DataLoader 0:  29%|██▊       | 265/927 [04:01<10:03,  1.10it/s]
+Testing DataLoader 0:  29%|██▊       | 266/927 [04:02<10:03,  1.10it/s]
+Testing DataLoader 0:  29%|██▉       | 267/927 [04:03<10:02,  1.09it/s]
+Testing DataLoader 0:  29%|██▉       | 268/927 [04:04<10:01,  1.10it/s]
+Testing DataLoader 0:  29%|██▉       | 269/927 [04:05<09:59,  1.10it/s]
+Testing DataLoader 0:  29%|██▉       | 270/927 [04:05<09:58,  1.10it/s]
+Testing DataLoader 0:  29%|██▉       | 271/927 [04:07<09:58,  1.10it/s]
+Testing DataLoader 0:  29%|██▉       | 272/927 [04:08<09:58,  1.10it/s]
+Testing DataLoader 0:  29%|██▉       | 273/927 [04:09<09:56,  1.10it/s]
+Testing DataLoader 0:  30%|██▉       | 274/927 [04:10<09:57,  1.09it/s]
+Testing DataLoader 0:  30%|██▉       | 275/927 [04:11<09:56,  1.09it/s]
+Testing DataLoader 0:  30%|██▉       | 276/927 [04:12<09:55,  1.09it/s]
+Testing DataLoader 0:  30%|██▉       | 277/927 [04:13<09:54,  1.09it/s]
+Testing DataLoader 0:  30%|██▉       | 278/927 [04:14<09:53,  1.09it/s]
+Testing DataLoader 0:  30%|███       | 279/927 [04:15<09:53,  1.09it/s]
+Testing DataLoader 0:  30%|███       | 280/927 [04:16<09:52,  1.09it/s]
+Testing DataLoader 0:  30%|███       | 281/927 [04:17<09:51,  1.09it/s]
+Testing DataLoader 0:  30%|███       | 282/927 [04:18<09:50,  1.09it/s]
+Testing DataLoader 0:  31%|███       | 283/927 [04:19<09:49,  1.09it/s]
+Testing DataLoader 0:  31%|███       | 284/927 [04:19<09:48,  1.09it/s]
+Testing DataLoader 0:  31%|███       | 285/927 [04:20<09:47,  1.09it/s]
+Testing DataLoader 0:  31%|███       | 286/927 [04:21<09:45,  1.09it/s]
+Testing DataLoader 0:  31%|███       | 287/927 [04:22<09:44,  1.10it/s]
+Testing DataLoader 0:  31%|███       | 288/927 [04:22<09:42,  1.10it/s]
+Testing DataLoader 0:  31%|███       | 289/927 [04:23<09:41,  1.10it/s]
+Testing DataLoader 0:  31%|███▏      | 290/927 [04:24<09:40,  1.10it/s]
+Testing DataLoader 0:  31%|███▏      | 291/927 [04:25<09:39,  1.10it/s]
+Testing DataLoader 0:  31%|███▏      | 292/927 [04:25<09:37,  1.10it/s]
+Testing DataLoader 0:  32%|███▏      | 293/927 [04:26<09:36,  1.10it/s]
+Testing DataLoader 0:  32%|███▏      | 294/927 [04:27<09:35,  1.10it/s]
+Testing DataLoader 0:  32%|███▏      | 295/927 [04:27<09:34,  1.10it/s]
+Testing DataLoader 0:  32%|███▏      | 296/927 [04:28<09:33,  1.10it/s]
+Testing DataLoader 0:  32%|███▏      | 297/927 [04:29<09:31,  1.10it/s]
+Testing DataLoader 0:  32%|███▏      | 298/927 [04:30<09:30,  1.10it/s]
+Testing DataLoader 0:  32%|███▏      | 299/927 [04:31<09:29,  1.10it/s]
+Testing DataLoader 0:  32%|███▏      | 300/927 [04:31<09:27,  1.10it/s]
+Testing DataLoader 0:  32%|███▏      | 301/927 [04:34<09:30,  1.10it/s]
+Testing DataLoader 0:  33%|███▎      | 302/927 [04:35<09:29,  1.10it/s]
+Testing DataLoader 0:  33%|███▎      | 303/927 [04:35<09:28,  1.10it/s]
+Testing DataLoader 0:  33%|███▎      | 304/927 [04:36<09:26,  1.10it/s]
+Testing DataLoader 0:  33%|███▎      | 305/927 [04:37<09:25,  1.10it/s]
+Testing DataLoader 0:  33%|███▎      | 306/927 [04:38<09:24,  1.10it/s]
+Testing DataLoader 0:  33%|███▎      | 307/927 [04:38<09:22,  1.10it/s]
+Testing DataLoader 0:  33%|███▎      | 308/927 [04:40<09:23,  1.10it/s]
+Testing DataLoader 0:  33%|███▎      | 309/927 [04:41<09:22,  1.10it/s]
+Testing DataLoader 0:  33%|███▎      | 310/927 [04:41<09:21,  1.10it/s]
+Testing DataLoader 0:  34%|███▎      | 311/927 [04:42<09:20,  1.10it/s]
+Testing DataLoader 0:  34%|███▎      | 312/927 [04:43<09:19,  1.10it/s]
+Testing DataLoader 0:  34%|███▍      | 313/927 [04:44<09:18,  1.10it/s]
+Testing DataLoader 0:  34%|███▍      | 314/927 [04:46<09:19,  1.10it/s]
+Testing DataLoader 0:  34%|███▍      | 315/927 [04:47<09:17,  1.10it/s]
+Testing DataLoader 0:  34%|███▍      | 316/927 [04:47<09:16,  1.10it/s]
+Testing DataLoader 0:  34%|███▍      | 317/927 [04:48<09:15,  1.10it/s]
+Testing DataLoader 0:  34%|███▍      | 318/927 [04:49<09:14,  1.10it/s]
+Testing DataLoader 0:  34%|███▍      | 319/927 [04:50<09:14,  1.10it/s]
+Testing DataLoader 0:  35%|███▍      | 320/927 [04:51<09:12,  1.10it/s]
+Testing DataLoader 0:  35%|███▍      | 321/927 [04:52<09:12,  1.10it/s]
+Testing DataLoader 0:  35%|███▍      | 322/927 [04:53<09:10,  1.10it/s]
+Testing DataLoader 0:  35%|███▍      | 323/927 [04:54<09:10,  1.10it/s]
+Testing DataLoader 0:  35%|███▍      | 324/927 [04:55<09:09,  1.10it/s]
+Testing DataLoader 0:  35%|███▌      | 325/927 [04:55<09:08,  1.10it/s]
+Testing DataLoader 0:  35%|███▌      | 326/927 [04:56<09:06,  1.10it/s]
+Testing DataLoader 0:  35%|███▌      | 327/927 [04:57<09:05,  1.10it/s]
+Testing DataLoader 0:  35%|███▌      | 328/927 [04:58<09:04,  1.10it/s]
+Testing DataLoader 0:  35%|███▌      | 329/927 [04:59<09:03,  1.10it/s]
+Testing DataLoader 0:  36%|███▌      | 330/927 [04:59<09:02,  1.10it/s]
+Testing DataLoader 0:  36%|███▌      | 331/927 [05:00<09:01,  1.10it/s]
+Testing DataLoader 0:  36%|███▌      | 332/927 [05:01<09:00,  1.10it/s]
+Testing DataLoader 0:  36%|███▌      | 333/927 [05:02<08:59,  1.10it/s]
+Testing DataLoader 0:  36%|███▌      | 334/927 [05:03<08:58,  1.10it/s]
+Testing DataLoader 0:  36%|███▌      | 335/927 [05:04<08:57,  1.10it/s]
+Testing DataLoader 0:  36%|███▌      | 336/927 [05:04<08:56,  1.10it/s]
+Testing DataLoader 0:  36%|███▋      | 337/927 [05:06<08:56,  1.10it/s]
+Testing DataLoader 0:  36%|███▋      | 338/927 [05:08<08:57,  1.10it/s]
+Testing DataLoader 0:  37%|███▋      | 339/927 [05:08<08:55,  1.10it/s]
+Testing DataLoader 0:  37%|███▋      | 340/927 [05:10<08:55,  1.10it/s]
+Testing DataLoader 0:  37%|███▋      | 341/927 [05:11<08:54,  1.10it/s]
+Testing DataLoader 0:  37%|███▋      | 342/927 [05:12<08:53,  1.10it/s]
+Testing DataLoader 0:  37%|███▋      | 343/927 [05:13<08:53,  1.09it/s]
+Testing DataLoader 0:  37%|███▋      | 344/927 [05:14<08:52,  1.09it/s]
+Testing DataLoader 0:  37%|███▋      | 345/927 [05:15<08:51,  1.09it/s]
+Testing DataLoader 0:  37%|███▋      | 346/927 [05:15<08:50,  1.10it/s]
+Testing DataLoader 0:  37%|███▋      | 347/927 [05:16<08:49,  1.10it/s]
+Testing DataLoader 0:  38%|███▊      | 348/927 [05:17<08:48,  1.10it/s]
+Testing DataLoader 0:  38%|███▊      | 349/927 [05:18<08:47,  1.10it/s]
+Testing DataLoader 0:  38%|███▊      | 350/927 [05:19<08:46,  1.10it/s]
+Testing DataLoader 0:  38%|███▊      | 351/927 [05:20<08:45,  1.10it/s]
+Testing DataLoader 0:  38%|███▊      | 352/927 [05:20<08:44,  1.10it/s]
+Testing DataLoader 0:  38%|███▊      | 353/927 [05:21<08:42,  1.10it/s]
+Testing DataLoader 0:  38%|███▊      | 354/927 [05:22<08:41,  1.10it/s]
+Testing DataLoader 0:  38%|███▊      | 355/927 [05:23<08:40,  1.10it/s]
+Testing DataLoader 0:  38%|███▊      | 356/927 [05:24<08:39,  1.10it/s]
+Testing DataLoader 0:  39%|███▊      | 357/927 [05:24<08:38,  1.10it/s]
+Testing DataLoader 0:  39%|███▊      | 358/927 [05:25<08:37,  1.10it/s]
+Testing DataLoader 0:  39%|███▊      | 359/927 [05:26<08:36,  1.10it/s]
+Testing DataLoader 0:  39%|███▉      | 360/927 [05:27<08:35,  1.10it/s]
+Testing DataLoader 0:  39%|███▉      | 361/927 [05:28<08:34,  1.10it/s]
+Testing DataLoader 0:  39%|███▉      | 362/927 [05:29<08:33,  1.10it/s]
+Testing DataLoader 0:  39%|███▉      | 363/927 [05:29<08:32,  1.10it/s]
+Testing DataLoader 0:  39%|███▉      | 364/927 [05:30<08:31,  1.10it/s]
+Testing DataLoader 0:  39%|███▉      | 365/927 [05:31<08:30,  1.10it/s]
+Testing DataLoader 0:  39%|███▉      | 366/927 [05:32<08:29,  1.10it/s]
+Testing DataLoader 0:  40%|███▉      | 367/927 [05:33<08:29,  1.10it/s]
+Testing DataLoader 0:  40%|███▉      | 368/927 [05:34<08:27,  1.10it/s]
+Testing DataLoader 0:  40%|███▉      | 369/927 [05:35<08:26,  1.10it/s]
+Testing DataLoader 0:  40%|███▉      | 370/927 [05:35<08:25,  1.10it/s]
+Testing DataLoader 0:  40%|████      | 371/927 [05:36<08:24,  1.10it/s]
+Testing DataLoader 0:  40%|████      | 372/927 [05:37<08:23,  1.10it/s]
+Testing DataLoader 0:  40%|████      | 373/927 [05:38<08:22,  1.10it/s]
+Testing DataLoader 0:  40%|████      | 374/927 [05:38<08:20,  1.10it/s]
+Testing DataLoader 0:  40%|████      | 375/927 [05:39<08:19,  1.10it/s]
+Testing DataLoader 0:  41%|████      | 376/927 [05:40<08:18,  1.11it/s]
+Testing DataLoader 0:  41%|████      | 377/927 [05:40<08:17,  1.11it/s]
+Testing DataLoader 0:  41%|████      | 378/927 [05:41<08:16,  1.11it/s]
+Testing DataLoader 0:  41%|████      | 379/927 [05:42<08:15,  1.11it/s]
+Testing DataLoader 0:  41%|████      | 380/927 [05:43<08:14,  1.11it/s]
+Testing DataLoader 0:  41%|████      | 381/927 [05:44<08:13,  1.11it/s]
+Testing DataLoader 0:  41%|████      | 382/927 [05:44<08:12,  1.11it/s]
+Testing DataLoader 0:  41%|████▏     | 383/927 [05:45<08:10,  1.11it/s]
+Testing DataLoader 0:  41%|████▏     | 384/927 [05:46<08:09,  1.11it/s]
+Testing DataLoader 0:  42%|████▏     | 385/927 [05:47<08:08,  1.11it/s]
+Testing DataLoader 0:  42%|████▏     | 386/927 [05:48<08:08,  1.11it/s]
+Testing DataLoader 0:  42%|████▏     | 387/927 [05:49<08:07,  1.11it/s]
+Testing DataLoader 0:  42%|████▏     | 388/927 [05:50<08:07,  1.11it/s]
+Testing DataLoader 0:  42%|████▏     | 389/927 [05:51<08:06,  1.11it/s]
+Testing DataLoader 0:  42%|████▏     | 390/927 [05:52<08:04,  1.11it/s]
+Testing DataLoader 0:  42%|████▏     | 391/927 [05:53<08:04,  1.11it/s]
+Testing DataLoader 0:  42%|████▏     | 392/927 [05:53<08:03,  1.11it/s]
+Testing DataLoader 0:  42%|████▏     | 393/927 [05:54<08:01,  1.11it/s]
+Testing DataLoader 0:  43%|████▎     | 394/927 [05:55<08:00,  1.11it/s]
+Testing DataLoader 0:  43%|████▎     | 395/927 [05:56<07:59,  1.11it/s]
+Testing DataLoader 0:  43%|████▎     | 396/927 [05:56<07:58,  1.11it/s]
+Testing DataLoader 0:  43%|████▎     | 397/927 [05:57<07:56,  1.11it/s]
+Testing DataLoader 0:  43%|████▎     | 398/927 [05:57<07:55,  1.11it/s]
+Testing DataLoader 0:  43%|████▎     | 399/927 [05:58<07:54,  1.11it/s]
+Testing DataLoader 0:  43%|████▎     | 400/927 [05:59<07:53,  1.11it/s]
+Testing DataLoader 0:  43%|████▎     | 401/927 [06:00<07:52,  1.11it/s]
+Testing DataLoader 0:  43%|████▎     | 402/927 [06:01<07:51,  1.11it/s]
+Testing DataLoader 0:  43%|████▎     | 403/927 [06:01<07:50,  1.11it/s]
+Testing DataLoader 0:  44%|████▎     | 404/927 [06:03<07:50,  1.11it/s]
+Testing DataLoader 0:  44%|████▎     | 405/927 [06:03<07:49,  1.11it/s]
+Testing DataLoader 0:  44%|████▍     | 406/927 [06:04<07:48,  1.11it/s]
+Testing DataLoader 0:  44%|████▍     | 407/927 [06:05<07:47,  1.11it/s]
+Testing DataLoader 0:  44%|████▍     | 408/927 [06:07<07:47,  1.11it/s]
+Testing DataLoader 0:  44%|████▍     | 409/927 [06:08<07:46,  1.11it/s]
+Testing DataLoader 0:  44%|████▍     | 410/927 [06:09<07:45,  1.11it/s]
+Testing DataLoader 0:  44%|████▍     | 411/927 [06:10<07:44,  1.11it/s]
+Testing DataLoader 0:  44%|████▍     | 412/927 [06:10<07:43,  1.11it/s]
+Testing DataLoader 0:  45%|████▍     | 413/927 [06:12<07:43,  1.11it/s]
+Testing DataLoader 0:  45%|████▍     | 414/927 [06:12<07:42,  1.11it/s]
+Testing DataLoader 0:  45%|████▍     | 415/927 [06:13<07:41,  1.11it/s]
+Testing DataLoader 0:  45%|████▍     | 416/927 [06:14<07:40,  1.11it/s]
+Testing DataLoader 0:  45%|████▍     | 417/927 [06:15<07:39,  1.11it/s]
+Testing DataLoader 0:  45%|████▌     | 418/927 [06:16<07:38,  1.11it/s]
+Testing DataLoader 0:  45%|████▌     | 419/927 [06:17<07:37,  1.11it/s]
+Testing DataLoader 0:  45%|████▌     | 420/927 [06:18<07:37,  1.11it/s]
+Testing DataLoader 0:  45%|████▌     | 421/927 [06:19<07:36,  1.11it/s]
+Testing DataLoader 0:  46%|████▌     | 422/927 [06:20<07:35,  1.11it/s]
+Testing DataLoader 0:  46%|████▌     | 423/927 [06:21<07:34,  1.11it/s]
+Testing DataLoader 0:  46%|████▌     | 424/927 [06:21<07:32,  1.11it/s]
+Testing DataLoader 0:  46%|████▌     | 425/927 [06:22<07:32,  1.11it/s]
+Testing DataLoader 0:  46%|████▌     | 426/927 [06:24<07:32,  1.11it/s]
+Testing DataLoader 0:  46%|████▌     | 427/927 [06:25<07:30,  1.11it/s]
+Testing DataLoader 0:  46%|████▌     | 428/927 [06:25<07:29,  1.11it/s]
+Testing DataLoader 0:  46%|████▋     | 429/927 [06:26<07:28,  1.11it/s]
+Testing DataLoader 0:  46%|████▋     | 430/927 [06:27<07:27,  1.11it/s]
+Testing DataLoader 0:  46%|████▋     | 431/927 [06:28<07:26,  1.11it/s]
+Testing DataLoader 0:  47%|████▋     | 432/927 [06:28<07:25,  1.11it/s]
+Testing DataLoader 0:  47%|████▋     | 433/927 [06:29<07:24,  1.11it/s]
+Testing DataLoader 0:  47%|████▋     | 434/927 [06:30<07:23,  1.11it/s]
+Testing DataLoader 0:  47%|████▋     | 435/927 [06:31<07:22,  1.11it/s]
+Testing DataLoader 0:  47%|████▋     | 436/927 [06:32<07:21,  1.11it/s]
+Testing DataLoader 0:  47%|████▋     | 437/927 [06:33<07:21,  1.11it/s]
+Testing DataLoader 0:  47%|████▋     | 438/927 [06:34<07:19,  1.11it/s]
+Testing DataLoader 0:  47%|████▋     | 439/927 [06:34<07:18,  1.11it/s]
+Testing DataLoader 0:  47%|████▋     | 440/927 [06:37<07:19,  1.11it/s]
+Testing DataLoader 0:  48%|████▊     | 441/927 [06:38<07:18,  1.11it/s]
+Testing DataLoader 0:  48%|████▊     | 442/927 [06:39<07:17,  1.11it/s]
+Testing DataLoader 0:  48%|████▊     | 443/927 [06:40<07:17,  1.11it/s]
+Testing DataLoader 0:  48%|████▊     | 444/927 [06:40<07:16,  1.11it/s]
+Testing DataLoader 0:  48%|████▊     | 445/927 [06:41<07:14,  1.11it/s]
+Testing DataLoader 0:  48%|████▊     | 446/927 [06:42<07:13,  1.11it/s]
+Testing DataLoader 0:  48%|████▊     | 447/927 [06:43<07:13,  1.11it/s]
+Testing DataLoader 0:  48%|████▊     | 448/927 [06:44<07:12,  1.11it/s]
+Testing DataLoader 0:  48%|████▊     | 449/927 [06:46<07:12,  1.11it/s]
+Testing DataLoader 0:  49%|████▊     | 450/927 [06:46<07:11,  1.11it/s]
+Testing DataLoader 0:  49%|████▊     | 451/927 [06:48<07:11,  1.10it/s]
+Testing DataLoader 0:  49%|████▉     | 452/927 [06:49<07:09,  1.10it/s]
+Testing DataLoader 0:  49%|████▉     | 453/927 [06:49<07:08,  1.11it/s]
+Testing DataLoader 0:  49%|████▉     | 454/927 [06:50<07:07,  1.11it/s]
+Testing DataLoader 0:  49%|████▉     | 455/927 [06:51<07:06,  1.11it/s]
+Testing DataLoader 0:  49%|████▉     | 456/927 [06:51<07:05,  1.11it/s]
+Testing DataLoader 0:  49%|████▉     | 457/927 [06:52<07:04,  1.11it/s]
+Testing DataLoader 0:  49%|████▉     | 458/927 [06:53<07:03,  1.11it/s]
+Testing DataLoader 0:  50%|████▉     | 459/927 [06:53<07:02,  1.11it/s]
+Testing DataLoader 0:  50%|████▉     | 460/927 [06:54<07:00,  1.11it/s]
+Testing DataLoader 0:  50%|████▉     | 461/927 [06:55<07:00,  1.11it/s]
+Testing DataLoader 0:  50%|████▉     | 462/927 [06:56<06:58,  1.11it/s]
+Testing DataLoader 0:  50%|████▉     | 463/927 [06:56<06:57,  1.11it/s]
+Testing DataLoader 0:  50%|█████     | 464/927 [06:57<06:56,  1.11it/s]
+Testing DataLoader 0:  50%|█████     | 465/927 [06:58<06:55,  1.11it/s]
+Testing DataLoader 0:  50%|█████     | 466/927 [06:59<06:54,  1.11it/s]
+Testing DataLoader 0:  50%|█████     | 467/927 [07:00<06:54,  1.11it/s]
+Testing DataLoader 0:  50%|█████     | 468/927 [07:01<06:52,  1.11it/s]
+Testing DataLoader 0:  51%|█████     | 469/927 [07:02<06:52,  1.11it/s]
+Testing DataLoader 0:  51%|█████     | 470/927 [07:02<06:51,  1.11it/s]
+Testing DataLoader 0:  51%|█████     | 471/927 [07:03<06:50,  1.11it/s]
+Testing DataLoader 0:  51%|█████     | 472/927 [07:06<06:51,  1.11it/s]
+Testing DataLoader 0:  51%|█████     | 473/927 [07:07<06:50,  1.11it/s]
+Testing DataLoader 0:  51%|█████     | 474/927 [07:07<06:48,  1.11it/s]
+Testing DataLoader 0:  51%|█████     | 475/927 [07:09<06:48,  1.11it/s]
+Testing DataLoader 0:  51%|█████▏    | 476/927 [07:10<06:47,  1.11it/s]
+Testing DataLoader 0:  51%|█████▏    | 477/927 [07:10<06:46,  1.11it/s]
+Testing DataLoader 0:  52%|█████▏    | 478/927 [07:11<06:45,  1.11it/s]
+Testing DataLoader 0:  52%|█████▏    | 479/927 [07:12<06:44,  1.11it/s]
+Testing DataLoader 0:  52%|█████▏    | 480/927 [07:13<06:43,  1.11it/s]
+Testing DataLoader 0:  52%|█████▏    | 481/927 [07:14<06:42,  1.11it/s]
+Testing DataLoader 0:  52%|█████▏    | 482/927 [07:15<06:41,  1.11it/s]
+Testing DataLoader 0:  52%|█████▏    | 483/927 [07:16<06:40,  1.11it/s]
+Testing DataLoader 0:  52%|█████▏    | 484/927 [07:17<06:40,  1.11it/s]
+Testing DataLoader 0:  52%|█████▏    | 485/927 [07:17<06:39,  1.11it/s]
+Testing DataLoader 0:  52%|█████▏    | 486/927 [07:18<06:38,  1.11it/s]
+Testing DataLoader 0:  53%|█████▎    | 487/927 [07:19<06:37,  1.11it/s]
+Testing DataLoader 0:  53%|█████▎    | 488/927 [07:20<06:36,  1.11it/s]
+Testing DataLoader 0:  53%|█████▎    | 489/927 [07:21<06:35,  1.11it/s]
+Testing DataLoader 0:  53%|█████▎    | 490/927 [07:22<06:34,  1.11it/s]
+Testing DataLoader 0:  53%|█████▎    | 491/927 [07:23<06:33,  1.11it/s]
+Testing DataLoader 0:  53%|█████▎    | 492/927 [07:23<06:32,  1.11it/s]
+Testing DataLoader 0:  53%|█████▎    | 493/927 [07:24<06:31,  1.11it/s]
+Testing DataLoader 0:  53%|█████▎    | 494/927 [07:25<06:30,  1.11it/s]
+Testing DataLoader 0:  53%|█████▎    | 495/927 [07:25<06:29,  1.11it/s]
+Testing DataLoader 0:  54%|█████▎    | 496/927 [07:26<06:27,  1.11it/s]
+Testing DataLoader 0:  54%|█████▎    | 497/927 [07:27<06:27,  1.11it/s]
+Testing DataLoader 0:  54%|█████▎    | 498/927 [07:28<06:26,  1.11it/s]
+Testing DataLoader 0:  54%|█████▍    | 499/927 [07:29<06:25,  1.11it/s]
+Testing DataLoader 0:  54%|█████▍    | 500/927 [07:30<06:24,  1.11it/s]
+Testing DataLoader 0:  54%|█████▍    | 501/927 [07:31<06:23,  1.11it/s]
+Testing DataLoader 0:  54%|█████▍    | 502/927 [07:31<06:22,  1.11it/s]
+Testing DataLoader 0:  54%|█████▍    | 503/927 [07:32<06:21,  1.11it/s]
+Testing DataLoader 0:  54%|█████▍    | 504/927 [07:33<06:20,  1.11it/s]
+Testing DataLoader 0:  54%|█████▍    | 505/927 [07:34<06:20,  1.11it/s]
+Testing DataLoader 0:  55%|█████▍    | 506/927 [07:35<06:18,  1.11it/s]
+Testing DataLoader 0:  55%|█████▍    | 507/927 [07:36<06:18,  1.11it/s]
+Testing DataLoader 0:  55%|█████▍    | 508/927 [07:37<06:17,  1.11it/s]
+Testing DataLoader 0:  55%|█████▍    | 509/927 [07:37<06:15,  1.11it/s]
+Testing DataLoader 0:  55%|█████▌    | 510/927 [07:39<06:15,  1.11it/s]
+Testing DataLoader 0:  55%|█████▌    | 511/927 [07:40<06:15,  1.11it/s]
+Testing DataLoader 0:  55%|█████▌    | 512/927 [07:41<06:14,  1.11it/s]
+Testing DataLoader 0:  55%|█████▌    | 513/927 [07:42<06:13,  1.11it/s]
+Testing DataLoader 0:  55%|█████▌    | 514/927 [07:43<06:12,  1.11it/s]
+Testing DataLoader 0:  56%|█████▌    | 515/927 [07:44<06:11,  1.11it/s]
+Testing DataLoader 0:  56%|█████▌    | 516/927 [07:45<06:10,  1.11it/s]
+Testing DataLoader 0:  56%|█████▌    | 517/927 [07:46<06:10,  1.11it/s]
+Testing DataLoader 0:  56%|█████▌    | 518/927 [07:47<06:09,  1.11it/s]
+Testing DataLoader 0:  56%|█████▌    | 519/927 [07:48<06:08,  1.11it/s]
+Testing DataLoader 0:  56%|█████▌    | 520/927 [07:49<06:07,  1.11it/s]
+Testing DataLoader 0:  56%|█████▌    | 521/927 [07:50<06:06,  1.11it/s]
+Testing DataLoader 0:  56%|█████▋    | 522/927 [07:51<06:05,  1.11it/s]
+Testing DataLoader 0:  56%|█████▋    | 523/927 [07:51<06:04,  1.11it/s]
+Testing DataLoader 0:  57%|█████▋    | 524/927 [07:52<06:03,  1.11it/s]
+Testing DataLoader 0:  57%|█████▋    | 525/927 [07:53<06:02,  1.11it/s]
+Testing DataLoader 0:  57%|█████▋    | 526/927 [07:54<06:01,  1.11it/s]
+Testing DataLoader 0:  57%|█████▋    | 527/927 [07:55<06:00,  1.11it/s]
+Testing DataLoader 0:  57%|█████▋    | 528/927 [07:55<05:59,  1.11it/s]
+Testing DataLoader 0:  57%|█████▋    | 529/927 [07:56<05:58,  1.11it/s]
+Testing DataLoader 0:  57%|█████▋    | 530/927 [07:57<05:57,  1.11it/s]
+Testing DataLoader 0:  57%|█████▋    | 531/927 [07:58<05:56,  1.11it/s]
+Testing DataLoader 0:  57%|█████▋    | 532/927 [07:58<05:55,  1.11it/s]
+Testing DataLoader 0:  57%|█████▋    | 533/927 [07:59<05:54,  1.11it/s]
+Testing DataLoader 0:  58%|█████▊    | 534/927 [08:00<05:53,  1.11it/s]
+Testing DataLoader 0:  58%|█████▊    | 535/927 [08:01<05:52,  1.11it/s]
+Testing DataLoader 0:  58%|█████▊    | 536/927 [08:01<05:51,  1.11it/s]
+Testing DataLoader 0:  58%|█████▊    | 537/927 [08:02<05:50,  1.11it/s]
+Testing DataLoader 0:  58%|█████▊    | 538/927 [08:03<05:49,  1.11it/s]
+Testing DataLoader 0:  58%|█████▊    | 539/927 [08:03<05:48,  1.11it/s]
+Testing DataLoader 0:  58%|█████▊    | 540/927 [08:05<05:47,  1.11it/s]
+Testing DataLoader 0:  58%|█████▊    | 541/927 [08:06<05:46,  1.11it/s]
+Testing DataLoader 0:  58%|█████▊    | 542/927 [08:06<05:45,  1.11it/s]
+Testing DataLoader 0:  59%|█████▊    | 543/927 [08:07<05:44,  1.11it/s]
+Testing DataLoader 0:  59%|█████▊    | 544/927 [08:08<05:43,  1.11it/s]
+Testing DataLoader 0:  59%|█████▉    | 545/927 [08:09<05:43,  1.11it/s]
+Testing DataLoader 0:  59%|█████▉    | 546/927 [08:10<05:42,  1.11it/s]
+Testing DataLoader 0:  59%|█████▉    | 547/927 [08:13<05:42,  1.11it/s]
+Testing DataLoader 0:  59%|█████▉    | 548/927 [08:14<05:41,  1.11it/s]
+Testing DataLoader 0:  59%|█████▉    | 549/927 [08:14<05:40,  1.11it/s]
+Testing DataLoader 0:  59%|█████▉    | 550/927 [08:15<05:39,  1.11it/s]
+Testing DataLoader 0:  59%|█████▉    | 551/927 [08:16<05:38,  1.11it/s]
+Testing DataLoader 0:  60%|█████▉    | 552/927 [08:17<05:37,  1.11it/s]
+Testing DataLoader 0:  60%|█████▉    | 553/927 [08:18<05:36,  1.11it/s]
+Testing DataLoader 0:  60%|█████▉    | 554/927 [08:19<05:36,  1.11it/s]
+Testing DataLoader 0:  60%|█████▉    | 555/927 [08:20<05:35,  1.11it/s]
+Testing DataLoader 0:  60%|█████▉    | 556/927 [08:21<05:34,  1.11it/s]
+Testing DataLoader 0:  60%|██████    | 557/927 [08:22<05:33,  1.11it/s]
+Testing DataLoader 0:  60%|██████    | 558/927 [08:22<05:32,  1.11it/s]
+Testing DataLoader 0:  60%|██████    | 559/927 [08:23<05:31,  1.11it/s]
+Testing DataLoader 0:  60%|██████    | 560/927 [08:24<05:30,  1.11it/s]
+Testing DataLoader 0:  61%|██████    | 561/927 [08:26<05:30,  1.11it/s]
+Testing DataLoader 0:  61%|██████    | 562/927 [08:27<05:29,  1.11it/s]
+Testing DataLoader 0:  61%|██████    | 563/927 [08:28<05:28,  1.11it/s]
+Testing DataLoader 0:  61%|██████    | 564/927 [08:29<05:27,  1.11it/s]
+Testing DataLoader 0:  61%|██████    | 565/927 [08:29<05:26,  1.11it/s]
+Testing DataLoader 0:  61%|██████    | 566/927 [08:30<05:25,  1.11it/s]
+Testing DataLoader 0:  61%|██████    | 567/927 [08:31<05:24,  1.11it/s]
+Testing DataLoader 0:  61%|██████▏   | 568/927 [08:32<05:23,  1.11it/s]
+Testing DataLoader 0:  61%|██████▏   | 569/927 [08:33<05:22,  1.11it/s]
+Testing DataLoader 0:  61%|██████▏   | 570/927 [08:33<05:21,  1.11it/s]
+Testing DataLoader 0:  62%|██████▏   | 571/927 [08:34<05:20,  1.11it/s]
+Testing DataLoader 0:  62%|██████▏   | 572/927 [08:35<05:19,  1.11it/s]
+Testing DataLoader 0:  62%|██████▏   | 573/927 [08:36<05:19,  1.11it/s]
+Testing DataLoader 0:  62%|██████▏   | 574/927 [08:37<05:17,  1.11it/s]
+Testing DataLoader 0:  62%|██████▏   | 575/927 [08:37<05:17,  1.11it/s]
+Testing DataLoader 0:  62%|██████▏   | 576/927 [08:38<05:15,  1.11it/s]
+Testing DataLoader 0:  62%|██████▏   | 577/927 [08:39<05:14,  1.11it/s]
+Testing DataLoader 0:  62%|██████▏   | 578/927 [08:39<05:13,  1.11it/s]
+Testing DataLoader 0:  62%|██████▏   | 579/927 [08:40<05:12,  1.11it/s]
+Testing DataLoader 0:  63%|██████▎   | 580/927 [08:42<05:12,  1.11it/s]
+Testing DataLoader 0:  63%|██████▎   | 581/927 [08:43<05:11,  1.11it/s]
+Testing DataLoader 0:  63%|██████▎   | 582/927 [08:44<05:10,  1.11it/s]
+Testing DataLoader 0:  63%|██████▎   | 583/927 [08:46<05:10,  1.11it/s]
+Testing DataLoader 0:  63%|██████▎   | 584/927 [08:46<05:09,  1.11it/s]
+Testing DataLoader 0:  63%|██████▎   | 585/927 [08:47<05:08,  1.11it/s]
+Testing DataLoader 0:  63%|██████▎   | 586/927 [08:48<05:07,  1.11it/s]
+Testing DataLoader 0:  63%|██████▎   | 587/927 [08:49<05:06,  1.11it/s]
+Testing DataLoader 0:  63%|██████▎   | 588/927 [08:49<05:05,  1.11it/s]
+Testing DataLoader 0:  64%|██████▎   | 589/927 [08:50<05:04,  1.11it/s]
+Testing DataLoader 0:  64%|██████▎   | 590/927 [08:51<05:03,  1.11it/s]
+Testing DataLoader 0:  64%|██████▍   | 591/927 [08:52<05:02,  1.11it/s]
+Testing DataLoader 0:  64%|██████▍   | 592/927 [08:53<05:01,  1.11it/s]
+Testing DataLoader 0:  64%|██████▍   | 593/927 [08:53<05:00,  1.11it/s]
+Testing DataLoader 0:  64%|██████▍   | 594/927 [08:54<04:59,  1.11it/s]
+Testing DataLoader 0:  64%|██████▍   | 595/927 [08:55<04:58,  1.11it/s]
+Testing DataLoader 0:  64%|██████▍   | 596/927 [08:56<04:57,  1.11it/s]
+Testing DataLoader 0:  64%|██████▍   | 597/927 [08:57<04:57,  1.11it/s]
+Testing DataLoader 0:  65%|██████▍   | 598/927 [08:58<04:56,  1.11it/s]
+Testing DataLoader 0:  65%|██████▍   | 599/927 [08:59<04:55,  1.11it/s]
+Testing DataLoader 0:  65%|██████▍   | 600/927 [08:59<04:54,  1.11it/s]
+Testing DataLoader 0:  65%|██████▍   | 601/927 [09:00<04:53,  1.11it/s]
+Testing DataLoader 0:  65%|██████▍   | 602/927 [09:00<04:51,  1.11it/s]
+Testing DataLoader 0:  65%|██████▌   | 603/927 [09:01<04:51,  1.11it/s]
+Testing DataLoader 0:  65%|██████▌   | 604/927 [09:02<04:50,  1.11it/s]
+Testing DataLoader 0:  65%|██████▌   | 605/927 [09:03<04:49,  1.11it/s]
+Testing DataLoader 0:  65%|██████▌   | 606/927 [09:04<04:48,  1.11it/s]
+Testing DataLoader 0:  65%|██████▌   | 607/927 [09:06<04:48,  1.11it/s]
+Testing DataLoader 0:  66%|██████▌   | 608/927 [09:07<04:47,  1.11it/s]
+Testing DataLoader 0:  66%|██████▌   | 609/927 [09:09<04:46,  1.11it/s]
+Testing DataLoader 0:  66%|██████▌   | 610/927 [09:11<04:46,  1.11it/s]
+Testing DataLoader 0:  66%|██████▌   | 611/927 [09:11<04:45,  1.11it/s]
+Testing DataLoader 0:  66%|██████▌   | 612/927 [09:12<04:44,  1.11it/s]
+Testing DataLoader 0:  66%|██████▌   | 613/927 [09:13<04:43,  1.11it/s]
+Testing DataLoader 0:  66%|██████▌   | 614/927 [09:13<04:42,  1.11it/s]
+Testing DataLoader 0:  66%|██████▋   | 615/927 [09:15<04:41,  1.11it/s]
+Testing DataLoader 0:  66%|██████▋   | 616/927 [09:16<04:40,  1.11it/s]
+Testing DataLoader 0:  67%|██████▋   | 617/927 [09:16<04:39,  1.11it/s]
+Testing DataLoader 0:  67%|██████▋   | 618/927 [09:17<04:38,  1.11it/s]
+Testing DataLoader 0:  67%|██████▋   | 619/927 [09:18<04:37,  1.11it/s]
+Testing DataLoader 0:  67%|██████▋   | 620/927 [09:19<04:37,  1.11it/s]
+Testing DataLoader 0:  67%|██████▋   | 621/927 [09:20<04:36,  1.11it/s]
+Testing DataLoader 0:  67%|██████▋   | 622/927 [09:21<04:35,  1.11it/s]
+Testing DataLoader 0:  67%|██████▋   | 623/927 [09:21<04:34,  1.11it/s]
+Testing DataLoader 0:  67%|██████▋   | 624/927 [09:22<04:33,  1.11it/s]
+Testing DataLoader 0:  67%|██████▋   | 625/927 [09:23<04:32,  1.11it/s]
+Testing DataLoader 0:  68%|██████▊   | 626/927 [09:23<04:31,  1.11it/s]
+Testing DataLoader 0:  68%|██████▊   | 627/927 [09:25<04:30,  1.11it/s]
+Testing DataLoader 0:  68%|██████▊   | 628/927 [09:26<04:29,  1.11it/s]
+Testing DataLoader 0:  68%|██████▊   | 629/927 [09:26<04:28,  1.11it/s]
+Testing DataLoader 0:  68%|██████▊   | 630/927 [09:27<04:27,  1.11it/s]
+Testing DataLoader 0:  68%|██████▊   | 631/927 [09:28<04:26,  1.11it/s]
+Testing DataLoader 0:  68%|██████▊   | 632/927 [09:29<04:25,  1.11it/s]
+Testing DataLoader 0:  68%|██████▊   | 633/927 [09:30<04:25,  1.11it/s]
+Testing DataLoader 0:  68%|██████▊   | 634/927 [09:31<04:24,  1.11it/s]
+Testing DataLoader 0:  69%|██████▊   | 635/927 [09:32<04:23,  1.11it/s]
+Testing DataLoader 0:  69%|██████▊   | 636/927 [09:34<04:22,  1.11it/s]
+Testing DataLoader 0:  69%|██████▊   | 637/927 [09:34<04:21,  1.11it/s]
+Testing DataLoader 0:  69%|██████▉   | 638/927 [09:35<04:20,  1.11it/s]
+Testing DataLoader 0:  69%|██████▉   | 639/927 [09:36<04:19,  1.11it/s]
+Testing DataLoader 0:  69%|██████▉   | 640/927 [09:37<04:18,  1.11it/s]
+Testing DataLoader 0:  69%|██████▉   | 641/927 [09:38<04:17,  1.11it/s]
+Testing DataLoader 0:  69%|██████▉   | 642/927 [09:38<04:16,  1.11it/s]
+Testing DataLoader 0:  69%|██████▉   | 643/927 [09:39<04:16,  1.11it/s]
+Testing DataLoader 0:  69%|██████▉   | 644/927 [09:40<04:15,  1.11it/s]
+Testing DataLoader 0:  70%|██████▉   | 645/927 [09:42<04:14,  1.11it/s]
+Testing DataLoader 0:  70%|██████▉   | 646/927 [09:43<04:13,  1.11it/s]
+Testing DataLoader 0:  70%|██████▉   | 647/927 [09:43<04:12,  1.11it/s]
+Testing DataLoader 0:  70%|██████▉   | 648/927 [09:44<04:11,  1.11it/s]
+Testing DataLoader 0:  70%|███████   | 649/927 [09:45<04:10,  1.11it/s]
+Testing DataLoader 0:  70%|███████   | 650/927 [09:46<04:09,  1.11it/s]
+Testing DataLoader 0:  70%|███████   | 651/927 [09:46<04:08,  1.11it/s]
+Testing DataLoader 0:  70%|███████   | 652/927 [09:47<04:07,  1.11it/s]
+Testing DataLoader 0:  70%|███████   | 653/927 [09:48<04:06,  1.11it/s]
+Testing DataLoader 0:  71%|███████   | 654/927 [09:48<04:05,  1.11it/s]
+Testing DataLoader 0:  71%|███████   | 655/927 [09:49<04:04,  1.11it/s]
+Testing DataLoader 0:  71%|███████   | 656/927 [09:50<04:03,  1.11it/s]
+Testing DataLoader 0:  71%|███████   | 657/927 [09:50<04:02,  1.11it/s]
+Testing DataLoader 0:  71%|███████   | 658/927 [09:51<04:02,  1.11it/s]
+Testing DataLoader 0:  71%|███████   | 659/927 [09:52<04:01,  1.11it/s]
+Testing DataLoader 0:  71%|███████   | 660/927 [09:53<04:00,  1.11it/s]
+Testing DataLoader 0:  71%|███████▏  | 661/927 [09:54<03:59,  1.11it/s]
+Testing DataLoader 0:  71%|███████▏  | 662/927 [09:55<03:58,  1.11it/s]
+Testing DataLoader 0:  72%|███████▏  | 663/927 [09:56<03:57,  1.11it/s]
+Testing DataLoader 0:  72%|███████▏  | 664/927 [09:56<03:56,  1.11it/s]
+Testing DataLoader 0:  72%|███████▏  | 665/927 [09:58<03:55,  1.11it/s]
+Testing DataLoader 0:  72%|███████▏  | 666/927 [09:58<03:54,  1.11it/s]
+Testing DataLoader 0:  72%|███████▏  | 667/927 [09:59<03:53,  1.11it/s]
+Testing DataLoader 0:  72%|███████▏  | 668/927 [10:00<03:52,  1.11it/s]
+Testing DataLoader 0:  72%|███████▏  | 669/927 [10:01<03:52,  1.11it/s]
+Testing DataLoader 0:  72%|███████▏  | 670/927 [10:02<03:51,  1.11it/s]
+Testing DataLoader 0:  72%|███████▏  | 671/927 [10:03<03:50,  1.11it/s]
+Testing DataLoader 0:  72%|███████▏  | 672/927 [10:04<03:49,  1.11it/s]
+Testing DataLoader 0:  73%|███████▎  | 673/927 [10:04<03:48,  1.11it/s]
+Testing DataLoader 0:  73%|███████▎  | 674/927 [10:05<03:47,  1.11it/s]
+Testing DataLoader 0:  73%|███████▎  | 675/927 [10:06<03:46,  1.11it/s]
+Testing DataLoader 0:  73%|███████▎  | 676/927 [10:07<03:45,  1.11it/s]
+Testing DataLoader 0:  73%|███████▎  | 677/927 [10:08<03:44,  1.11it/s]
+Testing DataLoader 0:  73%|███████▎  | 678/927 [10:09<03:43,  1.11it/s]
+Testing DataLoader 0:  73%|███████▎  | 679/927 [10:10<03:42,  1.11it/s]
+Testing DataLoader 0:  73%|███████▎  | 680/927 [10:11<03:42,  1.11it/s]
+Testing DataLoader 0:  73%|███████▎  | 681/927 [10:13<03:41,  1.11it/s]
+Testing DataLoader 0:  74%|███████▎  | 682/927 [10:14<03:40,  1.11it/s]
+Testing DataLoader 0:  74%|███████▎  | 683/927 [10:15<03:39,  1.11it/s]
+Testing DataLoader 0:  74%|███████▍  | 684/927 [10:16<03:38,  1.11it/s]
+Testing DataLoader 0:  74%|███████▍  | 685/927 [10:17<03:38,  1.11it/s]
+Testing DataLoader 0:  74%|███████▍  | 686/927 [10:18<03:37,  1.11it/s]
+Testing DataLoader 0:  74%|███████▍  | 687/927 [10:18<03:36,  1.11it/s]
+Testing DataLoader 0:  74%|███████▍  | 688/927 [10:19<03:35,  1.11it/s]
+Testing DataLoader 0:  74%|███████▍  | 689/927 [10:20<03:34,  1.11it/s]
+Testing DataLoader 0:  74%|███████▍  | 690/927 [10:21<03:33,  1.11it/s]
+Testing DataLoader 0:  75%|███████▍  | 691/927 [10:21<03:32,  1.11it/s]
+Testing DataLoader 0:  75%|███████▍  | 692/927 [10:22<03:31,  1.11it/s]
+Testing DataLoader 0:  75%|███████▍  | 693/927 [10:24<03:30,  1.11it/s]
+Testing DataLoader 0:  75%|███████▍  | 694/927 [10:25<03:29,  1.11it/s]
+Testing DataLoader 0:  75%|███████▍  | 695/927 [10:25<03:28,  1.11it/s]
+Testing DataLoader 0:  75%|███████▌  | 696/927 [10:26<03:28,  1.11it/s]
+Testing DataLoader 0:  75%|███████▌  | 697/927 [10:27<03:27,  1.11it/s]
+Testing DataLoader 0:  75%|███████▌  | 698/927 [10:28<03:26,  1.11it/s]
+Testing DataLoader 0:  75%|███████▌  | 699/927 [10:29<03:25,  1.11it/s]
+Testing DataLoader 0:  76%|███████▌  | 700/927 [10:30<03:24,  1.11it/s]
+Testing DataLoader 0:  76%|███████▌  | 701/927 [10:30<03:23,  1.11it/s]
+Testing DataLoader 0:  76%|███████▌  | 702/927 [10:31<03:22,  1.11it/s]
+Testing DataLoader 0:  76%|███████▌  | 703/927 [10:32<03:21,  1.11it/s]
+Testing DataLoader 0:  76%|███████▌  | 704/927 [10:33<03:20,  1.11it/s]
+Testing DataLoader 0:  76%|███████▌  | 705/927 [10:34<03:19,  1.11it/s]
+Testing DataLoader 0:  76%|███████▌  | 706/927 [10:34<03:18,  1.11it/s]
+Testing DataLoader 0:  76%|███████▋  | 707/927 [10:35<03:17,  1.11it/s]
+Testing DataLoader 0:  76%|███████▋  | 708/927 [10:36<03:16,  1.11it/s]
+Testing DataLoader 0:  76%|███████▋  | 709/927 [10:37<03:16,  1.11it/s]
+Testing DataLoader 0:  77%|███████▋  | 710/927 [10:39<03:15,  1.11it/s]
+Testing DataLoader 0:  77%|███████▋  | 711/927 [10:39<03:14,  1.11it/s]
+Testing DataLoader 0:  77%|███████▋  | 712/927 [10:40<03:13,  1.11it/s]
+Testing DataLoader 0:  77%|███████▋  | 713/927 [10:41<03:12,  1.11it/s]
+Testing DataLoader 0:  77%|███████▋  | 714/927 [10:42<03:11,  1.11it/s]
+Testing DataLoader 0:  77%|███████▋  | 715/927 [10:44<03:10,  1.11it/s]
+Testing DataLoader 0:  77%|███████▋  | 716/927 [10:44<03:10,  1.11it/s]
+Testing DataLoader 0:  77%|███████▋  | 717/927 [10:45<03:09,  1.11it/s]
+Testing DataLoader 0:  77%|███████▋  | 718/927 [10:46<03:08,  1.11it/s]
+Testing DataLoader 0:  78%|███████▊  | 719/927 [10:47<03:07,  1.11it/s]
+Testing DataLoader 0:  78%|███████▊  | 720/927 [10:48<03:06,  1.11it/s]
+Testing DataLoader 0:  78%|███████▊  | 721/927 [10:49<03:05,  1.11it/s]
+Testing DataLoader 0:  78%|███████▊  | 722/927 [10:50<03:04,  1.11it/s]
+Testing DataLoader 0:  78%|███████▊  | 723/927 [10:51<03:03,  1.11it/s]
+Testing DataLoader 0:  78%|███████▊  | 724/927 [10:51<03:02,  1.11it/s]
+Testing DataLoader 0:  78%|███████▊  | 725/927 [10:52<03:01,  1.11it/s]
+Testing DataLoader 0:  78%|███████▊  | 726/927 [10:53<03:00,  1.11it/s]
+Testing DataLoader 0:  78%|███████▊  | 727/927 [10:54<02:59,  1.11it/s]
+Testing DataLoader 0:  79%|███████▊  | 728/927 [10:54<02:58,  1.11it/s]
+Testing DataLoader 0:  79%|███████▊  | 729/927 [10:55<02:58,  1.11it/s]
+Testing DataLoader 0:  79%|███████▊  | 730/927 [10:56<02:57,  1.11it/s]
+Testing DataLoader 0:  79%|███████▉  | 731/927 [10:57<02:56,  1.11it/s]
+Testing DataLoader 0:  79%|███████▉  | 732/927 [10:58<02:55,  1.11it/s]
+Testing DataLoader 0:  79%|███████▉  | 733/927 [10:59<02:54,  1.11it/s]
+Testing DataLoader 0:  79%|███████▉  | 734/927 [11:00<02:53,  1.11it/s]
+Testing DataLoader 0:  79%|███████▉  | 735/927 [11:01<02:52,  1.11it/s]
+Testing DataLoader 0:  79%|███████▉  | 736/927 [11:01<02:51,  1.11it/s]
+Testing DataLoader 0:  80%|███████▉  | 737/927 [11:02<02:50,  1.11it/s]
+Testing DataLoader 0:  80%|███████▉  | 738/927 [11:03<02:49,  1.11it/s]
+Testing DataLoader 0:  80%|███████▉  | 739/927 [11:04<02:48,  1.11it/s]
+Testing DataLoader 0:  80%|███████▉  | 740/927 [11:04<02:47,  1.11it/s]
+Testing DataLoader 0:  80%|███████▉  | 741/927 [11:05<02:47,  1.11it/s]
+Testing DataLoader 0:  80%|████████  | 742/927 [11:06<02:46,  1.11it/s]
+Testing DataLoader 0:  80%|████████  | 743/927 [11:07<02:45,  1.11it/s]
+Testing DataLoader 0:  80%|████████  | 744/927 [11:08<02:44,  1.11it/s]
+Testing DataLoader 0:  80%|████████  | 745/927 [11:09<02:43,  1.11it/s]
+Testing DataLoader 0:  80%|████████  | 746/927 [11:10<02:42,  1.11it/s]
+Testing DataLoader 0:  81%|████████  | 747/927 [11:11<02:41,  1.11it/s]
+Testing DataLoader 0:  81%|████████  | 748/927 [11:12<02:40,  1.11it/s]
+Testing DataLoader 0:  81%|████████  | 749/927 [11:12<02:39,  1.11it/s]
+Testing DataLoader 0:  81%|████████  | 750/927 [11:13<02:38,  1.11it/s]
+Testing DataLoader 0:  81%|████████  | 751/927 [11:14<02:38,  1.11it/s]
+Testing DataLoader 0:  81%|████████  | 752/927 [11:16<02:37,  1.11it/s]
+Testing DataLoader 0:  81%|████████  | 753/927 [11:17<02:36,  1.11it/s]
+Testing DataLoader 0:  81%|████████▏ | 754/927 [11:18<02:35,  1.11it/s]
+Testing DataLoader 0:  81%|████████▏ | 755/927 [11:19<02:34,  1.11it/s]
+Testing DataLoader 0:  82%|████████▏ | 756/927 [11:20<02:33,  1.11it/s]
+Testing DataLoader 0:  82%|████████▏ | 757/927 [11:21<02:32,  1.11it/s]
+Testing DataLoader 0:  82%|████████▏ | 758/927 [11:21<02:32,  1.11it/s]
+Testing DataLoader 0:  82%|████████▏ | 759/927 [11:22<02:31,  1.11it/s]
+Testing DataLoader 0:  82%|████████▏ | 760/927 [11:23<02:30,  1.11it/s]
+Testing DataLoader 0:  82%|████████▏ | 761/927 [11:24<02:29,  1.11it/s]
+Testing DataLoader 0:  82%|████████▏ | 762/927 [11:25<02:28,  1.11it/s]
+Testing DataLoader 0:  82%|████████▏ | 763/927 [11:26<02:27,  1.11it/s]
+Testing DataLoader 0:  82%|████████▏ | 764/927 [11:26<02:26,  1.11it/s]
+Testing DataLoader 0:  83%|████████▎ | 765/927 [11:27<02:25,  1.11it/s]
+Testing DataLoader 0:  83%|████████▎ | 766/927 [11:28<02:24,  1.11it/s]
+Testing DataLoader 0:  83%|████████▎ | 767/927 [11:29<02:23,  1.11it/s]
+Testing DataLoader 0:  83%|████████▎ | 768/927 [11:30<02:22,  1.11it/s]
+Testing DataLoader 0:  83%|████████▎ | 769/927 [11:31<02:22,  1.11it/s]
+Testing DataLoader 0:  83%|████████▎ | 770/927 [11:32<02:21,  1.11it/s]
+Testing DataLoader 0:  83%|████████▎ | 771/927 [11:33<02:20,  1.11it/s]
+Testing DataLoader 0:  83%|████████▎ | 772/927 [11:33<02:19,  1.11it/s]
+Testing DataLoader 0:  83%|████████▎ | 773/927 [11:35<02:18,  1.11it/s]
+Testing DataLoader 0:  83%|████████▎ | 774/927 [11:36<02:17,  1.11it/s]
+Testing DataLoader 0:  84%|████████▎ | 775/927 [11:36<02:16,  1.11it/s]
+Testing DataLoader 0:  84%|████████▎ | 776/927 [11:38<02:15,  1.11it/s]
+Testing DataLoader 0:  84%|████████▍ | 777/927 [11:38<02:14,  1.11it/s]
+Testing DataLoader 0:  84%|████████▍ | 778/927 [11:39<02:14,  1.11it/s]
+Testing DataLoader 0:  84%|████████▍ | 779/927 [11:40<02:13,  1.11it/s]
+Testing DataLoader 0:  84%|████████▍ | 780/927 [11:41<02:12,  1.11it/s]
+Testing DataLoader 0:  84%|████████▍ | 781/927 [11:41<02:11,  1.11it/s]
+Testing DataLoader 0:  84%|████████▍ | 782/927 [11:42<02:10,  1.11it/s]
+Testing DataLoader 0:  84%|████████▍ | 783/927 [11:43<02:09,  1.11it/s]
+Testing DataLoader 0:  85%|████████▍ | 784/927 [11:44<02:08,  1.11it/s]
+Testing DataLoader 0:  85%|████████▍ | 785/927 [11:45<02:07,  1.11it/s]
+Testing DataLoader 0:  85%|████████▍ | 786/927 [11:45<02:06,  1.11it/s]
+Testing DataLoader 0:  85%|████████▍ | 787/927 [11:48<02:06,  1.11it/s]
+Testing DataLoader 0:  85%|████████▌ | 788/927 [11:49<02:05,  1.11it/s]
+Testing DataLoader 0:  85%|████████▌ | 789/927 [11:50<02:04,  1.11it/s]
+Testing DataLoader 0:  85%|████████▌ | 790/927 [11:51<02:03,  1.11it/s]
+Testing DataLoader 0:  85%|████████▌ | 791/927 [11:52<02:02,  1.11it/s]
+Testing DataLoader 0:  85%|████████▌ | 792/927 [11:53<02:01,  1.11it/s]
+Testing DataLoader 0:  86%|████████▌ | 793/927 [11:54<02:00,  1.11it/s]
+Testing DataLoader 0:  86%|████████▌ | 794/927 [11:55<01:59,  1.11it/s]
+Testing DataLoader 0:  86%|████████▌ | 795/927 [11:56<01:58,  1.11it/s]
+Testing DataLoader 0:  86%|████████▌ | 796/927 [11:57<01:58,  1.11it/s]
+Testing DataLoader 0:  86%|████████▌ | 797/927 [11:58<01:57,  1.11it/s]
+Testing DataLoader 0:  86%|████████▌ | 798/927 [11:59<01:56,  1.11it/s]
+Testing DataLoader 0:  86%|████████▌ | 799/927 [11:59<01:55,  1.11it/s]
+Testing DataLoader 0:  86%|████████▋ | 800/927 [12:01<01:54,  1.11it/s]
+Testing DataLoader 0:  86%|████████▋ | 801/927 [12:01<01:53,  1.11it/s]
+Testing DataLoader 0:  87%|████████▋ | 802/927 [12:02<01:52,  1.11it/s]
+Testing DataLoader 0:  87%|████████▋ | 803/927 [12:03<01:51,  1.11it/s]
+Testing DataLoader 0:  87%|████████▋ | 804/927 [12:04<01:50,  1.11it/s]
+Testing DataLoader 0:  87%|████████▋ | 805/927 [12:05<01:50,  1.11it/s]
+Testing DataLoader 0:  87%|████████▋ | 806/927 [12:07<01:49,  1.11it/s]
+Testing DataLoader 0:  87%|████████▋ | 807/927 [12:07<01:48,  1.11it/s]
+Testing DataLoader 0:  87%|████████▋ | 808/927 [12:09<01:47,  1.11it/s]
+Testing DataLoader 0:  87%|████████▋ | 809/927 [12:10<01:46,  1.11it/s]
+Testing DataLoader 0:  87%|████████▋ | 810/927 [12:11<01:45,  1.11it/s]
+Testing DataLoader 0:  87%|████████▋ | 811/927 [12:12<01:44,  1.11it/s]
+Testing DataLoader 0:  88%|████████▊ | 812/927 [12:13<01:43,  1.11it/s]
+Testing DataLoader 0:  88%|████████▊ | 813/927 [12:14<01:42,  1.11it/s]
+Testing DataLoader 0:  88%|████████▊ | 814/927 [12:14<01:42,  1.11it/s]
+Testing DataLoader 0:  88%|████████▊ | 815/927 [12:15<01:41,  1.11it/s]
+Testing DataLoader 0:  88%|████████▊ | 816/927 [12:16<01:40,  1.11it/s]
+Testing DataLoader 0:  88%|████████▊ | 817/927 [12:17<01:39,  1.11it/s]
+Testing DataLoader 0:  88%|████████▊ | 818/927 [12:17<01:38,  1.11it/s]
+Testing DataLoader 0:  88%|████████▊ | 819/927 [12:18<01:37,  1.11it/s]
+Testing DataLoader 0:  88%|████████▊ | 820/927 [12:19<01:36,  1.11it/s]
+Testing DataLoader 0:  89%|████████▊ | 821/927 [12:20<01:35,  1.11it/s]
+Testing DataLoader 0:  89%|████████▊ | 822/927 [12:21<01:34,  1.11it/s]
+Testing DataLoader 0:  89%|████████▉ | 823/927 [12:22<01:33,  1.11it/s]
+Testing DataLoader 0:  89%|████████▉ | 824/927 [12:23<01:32,  1.11it/s]
+Testing DataLoader 0:  89%|████████▉ | 825/927 [12:24<01:32,  1.11it/s]
+Testing DataLoader 0:  89%|████████▉ | 826/927 [12:25<01:31,  1.11it/s]
+Testing DataLoader 0:  89%|████████▉ | 827/927 [12:26<01:30,  1.11it/s]
+Testing DataLoader 0:  89%|████████▉ | 828/927 [12:27<01:29,  1.11it/s]
+Testing DataLoader 0:  89%|████████▉ | 829/927 [12:28<01:28,  1.11it/s]
+Testing DataLoader 0:  90%|████████▉ | 830/927 [12:29<01:27,  1.11it/s]
+Testing DataLoader 0:  90%|████████▉ | 831/927 [12:29<01:26,  1.11it/s]
+Testing DataLoader 0:  90%|████████▉ | 832/927 [12:30<01:25,  1.11it/s]
+Testing DataLoader 0:  90%|████████▉ | 833/927 [12:30<01:24,  1.11it/s]
+Testing DataLoader 0:  90%|████████▉ | 834/927 [12:31<01:23,  1.11it/s]
+Testing DataLoader 0:  90%|█████████ | 835/927 [12:32<01:22,  1.11it/s]
+Testing DataLoader 0:  90%|█████████ | 836/927 [12:33<01:22,  1.11it/s]
+Testing DataLoader 0:  90%|█████████ | 837/927 [12:34<01:21,  1.11it/s]
+Testing DataLoader 0:  90%|█████████ | 838/927 [12:35<01:20,  1.11it/s]
+Testing DataLoader 0:  91%|█████████ | 839/927 [12:35<01:19,  1.11it/s]
+Testing DataLoader 0:  91%|█████████ | 840/927 [12:36<01:18,  1.11it/s]
+Testing DataLoader 0:  91%|█████████ | 841/927 [12:37<01:17,  1.11it/s]
+Testing DataLoader 0:  91%|█████████ | 842/927 [12:38<01:16,  1.11it/s]
+Testing DataLoader 0:  91%|█████████ | 843/927 [12:39<01:15,  1.11it/s]
+Testing DataLoader 0:  91%|█████████ | 844/927 [12:40<01:14,  1.11it/s]
+Testing DataLoader 0:  91%|█████████ | 845/927 [12:40<01:13,  1.11it/s]
+Testing DataLoader 0:  91%|█████████▏| 846/927 [12:41<01:12,  1.11it/s]
+Testing DataLoader 0:  91%|█████████▏| 847/927 [12:42<01:12,  1.11it/s]
+Testing DataLoader 0:  91%|█████████▏| 848/927 [12:42<01:11,  1.11it/s]
+Testing DataLoader 0:  92%|█████████▏| 849/927 [12:43<01:10,  1.11it/s]
+Testing DataLoader 0:  92%|█████████▏| 850/927 [12:44<01:09,  1.11it/s]
+Testing DataLoader 0:  92%|█████████▏| 851/927 [12:45<01:08,  1.11it/s]
+Testing DataLoader 0:  92%|█████████▏| 852/927 [12:46<01:07,  1.11it/s]
+Testing DataLoader 0:  92%|█████████▏| 853/927 [12:47<01:06,  1.11it/s]
+Testing DataLoader 0:  92%|█████████▏| 854/927 [12:48<01:05,  1.11it/s]
+Testing DataLoader 0:  92%|█████████▏| 855/927 [12:51<01:04,  1.11it/s]
+Testing DataLoader 0:  92%|█████████▏| 856/927 [12:51<01:04,  1.11it/s]
+Testing DataLoader 0:  92%|█████████▏| 857/927 [12:52<01:03,  1.11it/s]
+Testing DataLoader 0:  93%|█████████▎| 858/927 [12:54<01:02,  1.11it/s]
+Testing DataLoader 0:  93%|█████████▎| 859/927 [12:54<01:01,  1.11it/s]
+Testing DataLoader 0:  93%|█████████▎| 860/927 [12:56<01:00,  1.11it/s]
+Testing DataLoader 0:  93%|█████████▎| 861/927 [12:56<00:59,  1.11it/s]
+Testing DataLoader 0:  93%|█████████▎| 862/927 [12:57<00:58,  1.11it/s]
+Testing DataLoader 0:  93%|█████████▎| 863/927 [12:58<00:57,  1.11it/s]
+Testing DataLoader 0:  93%|█████████▎| 864/927 [12:59<00:56,  1.11it/s]
+Testing DataLoader 0:  93%|█████████▎| 865/927 [13:00<00:55,  1.11it/s]
+Testing DataLoader 0:  93%|█████████▎| 866/927 [13:01<00:55,  1.11it/s]
+Testing DataLoader 0:  94%|█████████▎| 867/927 [13:02<00:54,  1.11it/s]
+Testing DataLoader 0:  94%|█████████▎| 868/927 [13:02<00:53,  1.11it/s]
+Testing DataLoader 0:  94%|█████████▎| 869/927 [13:03<00:52,  1.11it/s]
+Testing DataLoader 0:  94%|█████████▍| 870/927 [13:04<00:51,  1.11it/s]
+Testing DataLoader 0:  94%|█████████▍| 871/927 [13:05<00:50,  1.11it/s]
+Testing DataLoader 0:  94%|█████████▍| 872/927 [13:06<00:49,  1.11it/s]
+Testing DataLoader 0:  94%|█████████▍| 873/927 [13:06<00:48,  1.11it/s]
+Testing DataLoader 0:  94%|█████████▍| 874/927 [13:07<00:47,  1.11it/s]
+Testing DataLoader 0:  94%|█████████▍| 875/927 [13:08<00:46,  1.11it/s]
+Testing DataLoader 0:  94%|█████████▍| 876/927 [13:09<00:45,  1.11it/s]
+Testing DataLoader 0:  95%|█████████▍| 877/927 [13:10<00:45,  1.11it/s]
+Testing DataLoader 0:  95%|█████████▍| 878/927 [13:11<00:44,  1.11it/s]
+Testing DataLoader 0:  95%|█████████▍| 879/927 [13:12<00:43,  1.11it/s]
+Testing DataLoader 0:  95%|█████████▍| 880/927 [13:13<00:42,  1.11it/s]
+Testing DataLoader 0:  95%|█████████▌| 881/927 [13:13<00:41,  1.11it/s]
+Testing DataLoader 0:  95%|█████████▌| 882/927 [13:14<00:40,  1.11it/s]
+Testing DataLoader 0:  95%|█████████▌| 883/927 [13:16<00:39,  1.11it/s]
+Testing DataLoader 0:  95%|█████████▌| 884/927 [13:16<00:38,  1.11it/s]
+Testing DataLoader 0:  95%|█████████▌| 885/927 [13:17<00:37,  1.11it/s]
+Testing DataLoader 0:  96%|█████████▌| 886/927 [13:18<00:36,  1.11it/s]
+Testing DataLoader 0:  96%|█████████▌| 887/927 [13:19<00:36,  1.11it/s]
+Testing DataLoader 0:  96%|█████████▌| 888/927 [13:20<00:35,  1.11it/s]
+Testing DataLoader 0:  96%|█████████▌| 889/927 [13:21<00:34,  1.11it/s]
+Testing DataLoader 0:  96%|█████████▌| 890/927 [13:22<00:33,  1.11it/s]
+Testing DataLoader 0:  96%|█████████▌| 891/927 [13:23<00:32,  1.11it/s]
+Testing DataLoader 0:  96%|█████████▌| 892/927 [13:24<00:31,  1.11it/s]
+Testing DataLoader 0:  96%|█████████▋| 893/927 [13:25<00:30,  1.11it/s]
+Testing DataLoader 0:  96%|█████████▋| 894/927 [13:25<00:29,  1.11it/s]
+Testing DataLoader 0:  97%|█████████▋| 895/927 [13:26<00:28,  1.11it/s]
+Testing DataLoader 0:  97%|█████████▋| 896/927 [13:27<00:27,  1.11it/s]
+Testing DataLoader 0:  97%|█████████▋| 897/927 [13:28<00:27,  1.11it/s]
+Testing DataLoader 0:  97%|█████████▋| 898/927 [13:29<00:26,  1.11it/s]
+Testing DataLoader 0:  97%|█████████▋| 899/927 [13:30<00:25,  1.11it/s]
+Testing DataLoader 0:  97%|█████████▋| 900/927 [13:32<00:24,  1.11it/s]
+Testing DataLoader 0:  97%|█████████▋| 901/927 [13:33<00:23,  1.11it/s]
+Testing DataLoader 0:  97%|█████████▋| 902/927 [13:33<00:22,  1.11it/s]
+Testing DataLoader 0:  97%|█████████▋| 903/927 [13:34<00:21,  1.11it/s]
+Testing DataLoader 0:  98%|█████████▊| 904/927 [13:35<00:20,  1.11it/s]
+Testing DataLoader 0:  98%|█████████▊| 905/927 [13:37<00:19,  1.11it/s]
+Testing DataLoader 0:  98%|█████████▊| 906/927 [13:38<00:18,  1.11it/s]
+Testing DataLoader 0:  98%|█████████▊| 907/927 [13:38<00:18,  1.11it/s]
+Testing DataLoader 0:  98%|█████████▊| 908/927 [13:39<00:17,  1.11it/s]
+Testing DataLoader 0:  98%|█████████▊| 909/927 [13:40<00:16,  1.11it/s]
+Testing DataLoader 0:  98%|█████████▊| 910/927 [13:41<00:15,  1.11it/s]
+Testing DataLoader 0:  98%|█████████▊| 911/927 [13:41<00:14,  1.11it/s]
+Testing DataLoader 0:  98%|█████████▊| 912/927 [13:42<00:13,  1.11it/s]
+Testing DataLoader 0:  98%|█████████▊| 913/927 [13:43<00:12,  1.11it/s]
+Testing DataLoader 0:  99%|█████████▊| 914/927 [13:44<00:11,  1.11it/s]
+Testing DataLoader 0:  99%|█████████▊| 915/927 [13:44<00:10,  1.11it/s]
+Testing DataLoader 0:  99%|█████████▉| 916/927 [13:45<00:09,  1.11it/s]
+Testing DataLoader 0:  99%|█████████▉| 917/927 [13:46<00:09,  1.11it/s]
+Testing DataLoader 0:  99%|█████████▉| 918/927 [13:47<00:08,  1.11it/s]
+Testing DataLoader 0:  99%|█████████▉| 919/927 [13:48<00:07,  1.11it/s]
+Testing DataLoader 0:  99%|█████████▉| 920/927 [13:49<00:06,  1.11it/s]
+Testing DataLoader 0:  99%|█████████▉| 921/927 [13:50<00:05,  1.11it/s]
+Testing DataLoader 0:  99%|█████████▉| 922/927 [13:50<00:04,  1.11it/s]
+Testing DataLoader 0: 100%|█████████▉| 923/927 [13:51<00:03,  1.11it/s]
+Testing DataLoader 0: 100%|█████████▉| 924/927 [13:52<00:02,  1.11it/s]
+Testing DataLoader 0: 100%|█████████▉| 925/927 [13:53<00:01,  1.11it/s]
+Testing DataLoader 0: 100%|█████████▉| 926/927 [13:54<00:00,  1.11it/s]
+Testing DataLoader 0: 100%|██████████| 927/927 [13:54<00:00,  1.11it/s]
+
+Testing results for `Babelscape/rebel-large` model. The test file is `data/biorel/test.jsonl` and the prediction result is in the file `Apr15_18-39-35_preds.jsonl`
+Per-relation statistics:
+active_metabolites_of                               P: 100.00%  R:   0.00%  F1:   0.00%  #: 5
+anatomic_structure_has_location                     P: 100.00%  R:   0.00%  F1:   0.00%  #: 33
+anatomic_structure_is_physical_part_of              P: 100.00%  R:   0.00%  F1:   0.00%  #: 966
+anatomy_originated_from_biological_process          P: 100.00%  R:   0.00%  F1:   0.00%  #: 11
+associated_with_malfunction_of_gene_product         P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+biological_process_has_associated_location          P: 100.00%  R:   0.00%  F1:   0.00%  #: 368
+biological_process_has_initiator_chemical_or_drug   P: 100.00%  R:   0.00%  F1:   0.00%  #: 48
+biological_process_has_initiator_process            P: 100.00%  R:   0.00%  F1:   0.00%  #: 6
+biological_process_has_result_anatomy               P: 100.00%  R:   0.00%  F1:   0.00%  #: 12
+biological_process_has_result_biological_process    P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+biological_process_has_result_chemical_or_drug      P: 100.00%  R:   0.00%  F1:   0.00%  #: 46
+biological_process_involves_gene_product            P: 100.00%  R:   0.00%  F1:   0.00%  #: 108
+biological_process_is_part_of_process               P: 100.00%  R:   0.00%  F1:   0.00%  #: 35
+biological_process_results_from_biological_process  P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+biomarker_type_includes_gene_product                P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+cdrh_parent_of                                      P: 100.00%  R:   0.00%  F1:   0.00%  #: 16
+chemical_or_drug_affects_gene_product               P: 100.00%  R:   0.00%  F1:   0.00%  #: 1
+chemical_or_drug_initiates_biological_process       P: 100.00%  R:   0.00%  F1:   0.00%  #: 56
+chemical_or_drug_is_product_of_biological_process   P: 100.00%  R:   0.00%  F1:   0.00%  #: 33
+chemical_structure_of                               P: 100.00%  R:   0.00%  F1:   0.00%  #: 98
+chemotherapy_regimen_has_component                  P: 100.00%  R:   0.00%  F1:   0.00%  #: 6
+completely_excised_anatomy_has_procedure            P: 100.00%  R:   0.00%  F1:   0.00%  #: 3
+complex_has_physical_part                           P: 100.00%  R:   0.00%  F1:   0.00%  #: 5
+concept_in_subset                                   P: 100.00%  R:   0.00%  F1:   0.00%  #: 7
+conceptual_part_of                                  P: 100.00%  R:   0.00%  F1:   0.00%  #: 43
+contraindicated_with_disease                        P: 100.00%  R:   0.00%  F1:   0.00%  #: 106
+contraindicating_class_of                           P: 100.00%  R:   0.00%  F1:   0.00%  #: 10
+disease_excludes_normal_cell_origin                 P: 100.00%  R:   0.00%  F1:   0.00%  #: 4
+disease_excludes_primary_anatomic_site              P: 100.00%  R:   0.00%  F1:   0.00%  #: 6
+disease_has_abnormal_cell                           P: 100.00%  R:   0.00%  F1:   0.00%  #: 23
+disease_has_associated_anatomic_site                P: 100.00%  R:   0.00%  F1:   0.00%  #: 242
+disease_has_associated_disease                      P: 100.00%  R:   0.00%  F1:   0.00%  #: 4
+disease_has_associated_gene                         P: 100.00%  R:   0.00%  F1:   0.00%  #: 1
+disease_has_finding                                 P: 100.00%  R:   0.00%  F1:   0.00%  #: 7
+disease_has_metastatic_anatomic_site                P: 100.00%  R:   0.00%  F1:   0.00%  #: 6
+disease_has_normal_cell_origin                      P: 100.00%  R:   0.00%  F1:   0.00%  #: 48
+disease_has_normal_tissue_origin                    P: 100.00%  R:   0.00%  F1:   0.00%  #: 13
+disease_has_primary_anatomic_site                   P: 100.00%  R:   0.00%  F1:   0.00%  #: 130
+disease_may_have_associated_disease                 P: 100.00%  R:   0.00%  F1:   0.00%  #: 11
+disease_may_have_finding                            P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+excised_anatomy_has_procedure                       P: 100.00%  R:   0.00%  F1:   0.00%  #: 42
+gene_associated_with_disease                        P: 100.00%  R:   0.00%  F1:   0.00%  #: 3
+gene_encodes_gene_product                           P: 100.00%  R:   0.00%  F1:   0.00%  #: 16
+gene_found_in_organism                              P: 100.00%  R:   0.00%  F1:   0.00%  #: 24
+gene_mapped_to_disease                              P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+gene_plays_role_in_process                          P: 100.00%  R:   0.00%  F1:   0.00%  #: 10
+gene_product_affected_by_chemical_or_drug           P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+gene_product_encoded_by_gene                        P: 100.00%  R:   0.00%  F1:   0.00%  #: 14
+gene_product_expressed_in_tissue                    P: 100.00%  R:   0.00%  F1:   0.00%  #: 76
+gene_product_has_associated_anatomy                 P: 100.00%  R:   0.00%  F1:   0.00%  #: 118
+gene_product_has_biochemical_function               P: 100.00%  R:   0.00%  F1:   0.00%  #: 55
+gene_product_has_chemical_classification            P: 100.00%  R:   0.00%  F1:   0.00%  #: 15
+gene_product_has_organism_source                    P: 100.00%  R:   0.00%  F1:   0.00%  #: 57
+gene_product_has_structural_domain_or_motif         P: 100.00%  R:   0.00%  F1:   0.00%  #: 1
+gene_product_is_biomarker_of                        P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+gene_product_is_physical_part_of                    P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+gene_product_malfunction_associated_with_disease    P: 100.00%  R:   0.00%  F1:   0.00%  #: 1
+gene_product_plays_role_in_biological_process       P: 100.00%  R:   0.00%  F1:   0.00%  #: 117
+has_active_metabolites                              P: 100.00%  R:   0.00%  F1:   0.00%  #: 5
+has_cdrh_parent                                     P: 100.00%  R:   0.00%  F1:   0.00%  #: 23
+has_chemical_structure                              P: 100.00%  R:   0.00%  F1:   0.00%  #: 42
+has_conceptual_part                                 P: 100.00%  R:   0.00%  F1:   0.00%  #: 13
+has_contraindicated_drug                            P: 100.00%  R:   0.00%  F1:   0.00%  #: 63
+has_contraindicating_class                          P: 100.00%  R:   0.00%  F1:   0.00%  #: 8
+has_free_acid_or_base_form                          P: 100.00%  R:   0.00%  F1:   0.00%  #: 19
+has_ingredient                                      P: 100.00%  R:   0.00%  F1:   0.00%  #: 26
+has_mechanism_of_action                             P: 100.00%  R:   0.00%  F1:   0.00%  #: 4
+has_nichd_parent                                    P: 100.00%  R:   0.00%  F1:   0.00%  #: 398
+has_physical_part_of_anatomic_structure             P: 100.00%  R:   0.00%  F1:   0.00%  #: 1007
+has_physiologic_effect                              P: 100.00%  R:   0.00%  F1:   0.00%  #: 5
+has_salt_form                                       P: 100.00%  R:   0.00%  F1:   0.00%  #: 8
+has_therapeutic_class                               P: 100.00%  R:   0.00%  F1:   0.00%  #: 26
+has_tradename                                       P: 100.00%  R:   0.00%  F1:   0.00%  #: 53
+induced_by                                          P: 100.00%  R:   0.00%  F1:   0.00%  #: 3
+induces                                             P: 100.00%  R:   0.00%  F1:   0.00%  #: 3
+ingredient_of                                       P: 100.00%  R:   0.00%  F1:   0.00%  #: 18
+is_abnormal_cell_of_disease                         P: 100.00%  R:   0.00%  F1:   0.00%  #: 27
+is_associated_anatomic_site_of                      P: 100.00%  R:   0.00%  F1:   0.00%  #: 262
+is_associated_anatomy_of_gene_product               P: 100.00%  R:   0.00%  F1:   0.00%  #: 91
+is_associated_disease_of                            P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+is_biochemical_function_of_gene_product             P: 100.00%  R:   0.00%  F1:   0.00%  #: 62
+is_chemical_classification_of_gene_product          P: 100.00%  R:   0.00%  F1:   0.00%  #: 5
+is_component_of_chemotherapy_regimen                P: 100.00%  R:   0.00%  F1:   0.00%  #: 10
+is_finding_of_disease                               P: 100.00%  R:   0.00%  F1:   0.00%  #: 9
+is_location_of_anatomic_structure                   P: 100.00%  R:   0.00%  F1:   0.00%  #: 45
+is_location_of_biological_process                   P: 100.00%  R:   0.00%  F1:   0.00%  #: 348
+is_marked_by_gene_product                           P: 100.00%  R:   0.00%  F1:   0.00%  #: 1
+is_metastatic_anatomic_site_of_disease              P: 100.00%  R:   0.00%  F1:   0.00%  #: 1
+is_normal_cell_origin_of_disease                    P: 100.00%  R:   0.00%  F1:   0.00%  #: 41
+is_normal_tissue_origin_of_disease                  P: 100.00%  R:   0.00%  F1:   0.00%  #: 15
+is_not_normal_cell_origin_of_disease                P: 100.00%  R:   0.00%  F1:   0.00%  #: 3
+is_not_primary_anatomic_site_of_disease             P: 100.00%  R:   0.00%  F1:   0.00%  #: 3
+is_organism_source_of_gene_product                  P: 100.00%  R:   0.00%  F1:   0.00%  #: 61
+is_physiologic_effect_of_chemical_or_drug           P: 100.00%  R:   0.00%  F1:   0.00%  #: 2
+is_primary_anatomic_site_of_disease                 P: 100.00%  R:   0.00%  F1:   0.00%  #: 106
+is_structural_domain_or_motif_of_gene_product       P: 100.00%  R:   0.00%  F1:   0.00%  #: 1
+may_be_associated_disease_of_disease                P: 100.00%  R:   0.00%  F1:   0.00%  #: 11
+may_be_diagnosed_by                                 P: 100.00%  R:   0.00%  F1:   0.00%  #: 9
+may_be_finding_of_disease                           P: 100.00%  R:   0.00%  F1:   0.00%  #: 5
+may_be_prevented_by                                 P: 100.00%  R:   0.00%  F1:   0.00%  #: 40
+may_be_treated_by                                   P: 100.00%  R:   0.00%  F1:   0.00%  #: 270
+may_diagnose                                        P: 100.00%  R:   0.00%  F1:   0.00%  #: 16
+may_prevent                                         P: 100.00%  R:   0.00%  F1:   0.00%  #: 54
+may_treat                                           P: 100.00%  R:   0.00%  F1:   0.00%  #: 374
+mechanism_of_action_of                              P: 100.00%  R:   0.00%  F1:   0.00%  #: 3
+nichd_parent_of                                     P: 100.00%  R:   0.00%  F1:   0.00%  #: 368
+organism_has_gene                                   P: 100.00%  R:   0.00%  F1:   0.00%  #: 36
+partially_excised_anatomy_has_procedure             P: 100.00%  R:   0.00%  F1:   0.00%  #: 9
+pathogenesis_of_disease_involves_gene               P: 100.00%  R:   0.00%  F1:   0.00%  #: 1
+physiologic_effect_of                               P: 100.00%  R:   0.00%  F1:   0.00%  #: 7
+procedure_has_completely_excised_anatomy            P: 100.00%  R:   0.00%  F1:   0.00%  #: 1
+procedure_has_excised_anatomy                       P: 100.00%  R:   0.00%  F1:   0.00%  #: 26
+procedure_has_partially_excised_anatomy             P: 100.00%  R:   0.00%  F1:   0.00%  #: 16
+procedure_has_target_anatomy                        P: 100.00%  R:   0.00%  F1:   0.00%  #: 26
+process_includes_biological_process                 P: 100.00%  R:   0.00%  F1:   0.00%  #: 32
+process_initiates_biological_process                P: 100.00%  R:   0.00%  F1:   0.00%  #: 6
+process_involves_gene                               P: 100.00%  R:   0.00%  F1:   0.00%  #: 17
+special_category_includes_neoplasm                  P: 100.00%  R:   0.00%  F1:   0.00%  #: 1
+subset_includes_concept                             P: 100.00%  R:   0.00%  F1:   0.00%  #: 7
+target_anatomy_has_procedure                        P: 100.00%  R:   0.00%  F1:   0.00%  #: 19
+therapeutic_class_of                                P: 100.00%  R:   0.00%  F1:   0.00%  #: 56
+tissue_is_expression_site_of_gene_product           P: 100.00%  R:   0.00%  F1:   0.00%  #: 74
+tradename_of                                        P: 100.00%  R:   0.00%  F1:   0.00%  #: 11
+
+Final Score:
+Precision (micro): 0.000%
+   Recall (micro): 0.000%
+       F1 (micro): 0.000%
+
+Testing DataLoader 0: 100%|██████████| 927/927 [13:54<00:00,  1.11it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+      test_F1_micro                 0.0
+        test_loss            4.942800521850586
+     test_prec_micro                0.0
+    test_recall_micro               0.0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

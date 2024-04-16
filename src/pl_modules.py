@@ -512,7 +512,7 @@ class BasePLModule(pl.LightningModule):
         # so that we can actually see the predicted triplets sequences.
         # if self.hparams.finetune:
         #     return {'predictions': self.forward_samples(batch, labels)}
-        # else:
+        # else: 
         #     outputs = {}
         #     outputs['predictions'], outputs['labels'] = self.generate_triples(batch, labels)
         #     return outputs
@@ -572,7 +572,10 @@ class BasePLModule(pl.LightningModule):
             #     for id_, row in enumerate(f):
             #         key.append(' '.join(row['token']))
             with open(prediction_file, 'w') as f:
-                f.write('Model name: ' + self.hparams.model_name_or_path + '\n')
+                if self.hparams.finetune:
+                    f.write('Model name: ' + self.hparams.checkpoint_path + '\n')
+                else:
+                    f.write('Model name: ' + self.hparams.model_name_or_path + '\n')
                 f.write('Test file: ' + self.hparams.test_file + '\n')
                 f.write('predictions \t labels \n')
                 preds_list = []
@@ -582,7 +585,8 @@ class BasePLModule(pl.LightningModule):
                         if len(pred) == 0 or len(lab) == 0:
                             continue
                         # We are just using the first triplet in case there are multiple triplets predicted.
-                        f.write(f'{pred[0]} \t {lab[0]} \n')
+                        #f.write(f'{pred[0]} \t {lab[0]} \n')
+                        f.write(f'{pred} \t {lab} \n')
                         preds_list.append(pred[0]["type"])
                         labels_list.append(lab[0]["type"])
 
