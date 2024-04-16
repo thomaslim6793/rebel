@@ -243,6 +243,7 @@ class BasePLModule(pl.LightningModule):
             return [extract_triplets_typed(rel, {'<loc>': 'LOCATION', '<org>': 'ORGANIZATION', '<per>': 'PERSON'}) for rel in decoded_preds], [extract_triplets_typed(rel, {'<loc>': 'LOCATION', '<org>': 'ORGANIZATION', '<per>': 'PERSON'}) for rel in decoded_labels]
         elif self.hparams.dataset_name.split('/')[-1] == 'docred_typed.py':
             return [extract_triplets_typed(rel, {'<loc>': 'LOC', '<misc>': 'MISC', '<per>': 'PER', '<num>': 'NUM', '<time>': 'TIME', '<org>': 'ORG'}) for rel in decoded_preds], [extract_triplets_typed(rel, {'<loc>': 'LOC', '<misc>': 'MISC', '<per>': 'PER', '<num>': 'NUM', '<time>': 'TIME', '<org>': 'ORG'}) for rel in decoded_labels]
+        # Return type is ([[triplet1, ...], ...],[[triplet1, ...], ...])
         return [extract_triplets(rel) for rel in decoded_preds], [extract_triplets(rel) for rel in decoded_labels]
 
     # Given the firt triplet, predict the subsequent triplets. 
@@ -532,7 +533,7 @@ class BasePLModule(pl.LightningModule):
         outputs = self.test_results
         if not self.hparams.finetune and self.hparams.relations_file:
             print(f'\n\nTesting results for `{self.hparams.model_name_or_path}` model which is not fine-tuned.' 
-                  f' Only considering the relations in the relations file `{self.hparams.relations_file}`')
+                f' Only considering the relations in the relations file `{self.hparams.relations_file}`')
             relations_df = pd.read_csv(self.hparams.relations_file, header = None, sep='\t')
             relations = list(relations_df[0])
             scores, precision, recall, f1 = re_score([item for pred in outputs for item in pred['predictions']], [item for pred in outputs for item in pred['labels']], relations)
@@ -557,9 +558,14 @@ class BasePLModule(pl.LightningModule):
         else:
             current_time = datetime.now().strftime('%b%d_%H-%M-%S')
             prediction_file = current_time + '_preds.jsonl'
-            print(f'\n\nTesting results for `{self.hparams.model_name_or_path}` model which IS a fine-tuned model.' 
-                  f' The test file is `{self.hparams.test_file}` and'
-                  f' the prediction result is in the file `{prediction_file}`')
+            if self.hparams.finetune:
+                print(f'\n\nTesting results for `{self.hparams.checkpoint_path}` model.' 
+                    f' The test file is `{self.hparams.test_file}` and'
+                    f' the prediction result is in the file `{prediction_file}`')
+            else:
+                print(f'\n\nTesting results for `{self.hparams.model_name_or_path}` model.' 
+                    f' The test file is `{self.hparams.test_file}` and'
+                    f' the prediction result is in the file `{prediction_file}`')
             # key = []
             # with open(self.hparams.test_file) as json_file:
             #     f = json.load(json_file)
@@ -568,12 +574,14 @@ class BasePLModule(pl.LightningModule):
             with open(prediction_file, 'w') as f:
                 f.write('Model name: ' + self.hparams.model_name_or_path + '\n')
                 f.write('Test file: ' + self.hparams.test_file + '\n')
+                f.write('predictions \t labels \n')
                 preds_list = []
                 labels_list = []
                 for ele in outputs:
                     for pred, lab in zip(ele['predictions'], ele['labels']):
                         if len(pred) == 0 or len(lab) == 0:
                             continue
+                        # We are just using the first triplet in case there are multiple triplets predicted.
                         f.write(f'{pred[0]} \t {lab[0]} \n')
                         preds_list.append(pred[0]["type"])
                         labels_list.append(lab[0]["type"])

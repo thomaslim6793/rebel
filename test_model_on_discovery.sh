@@ -51,9 +51,6 @@ fi
 # Activate the Conda environment and install requirements
 conda activate cs6120-project
 
-# Check PyTorch and CUDA version
-python -c "import torch; print('torch version is: ', torch.__version__); assert torch.__version__ == '$DESIRED_PYTORCH_VERSION+$DESIRED_CUDA_VERSION' and 'cu118' in torch.version.cuda, 'Version mismatch'"
-
 # Check the current version of PyTorch
 installed_pytorch_version=$(python -c "import torch; print(torch.__version__)")
 
@@ -68,9 +65,8 @@ else
     echo "PyTorch version matches the desired version ($DESIRED_PYTORCH_VERSION+cu118). No update necessary."
 fi
 
-
 pip install -r requirements.txt
 
-echo "Now running the Python script to start our training process"
+echo "Now running the Python script to test our model"
 export WANDB_MODE=disabled
-python src/train.py
+python src/test.py

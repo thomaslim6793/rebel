@@ -8,4 +8,4 @@ use_fast_tokenizer: True
 
 model_revision: 'main'
 use_auth_token: False
-finetune: True
+finetune: False

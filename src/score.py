@@ -72,9 +72,13 @@ def score(key, prediction, verbose=False):
         guess = prediction[row]
          
         if gold == NO_RELATION and guess == NO_RELATION:
-            pass
+            pass   
+        # If true label is no relation but predicted label is not no relation
+        # then it is a false positive
         elif gold == NO_RELATION and guess != NO_RELATION:
             guessed_by_relation[guess] += 1
+        # If true label is not no relation but predicted label is no relation
+        # then it is a false negative
         elif gold != NO_RELATION and guess == NO_RELATION:
             gold_by_relation[gold] += 1
         elif gold != NO_RELATION and guess != NO_RELATION:
