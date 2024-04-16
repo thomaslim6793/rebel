@@ -572,7 +572,10 @@ class BasePLModule(pl.LightningModule):
             #     for id_, row in enumerate(f):
             #         key.append(' '.join(row['token']))
             with open(prediction_file, 'w') as f:
-                f.write('Model name: ' + self.hparams.model_name_or_path + '\n')
+                if self.hparams.finetune:
+                    f.write('Model name: ' + self.hparams.checkpoint_path + '\n')
+                else:
+                    f.write('Model name: ' + self.hparams.model_name_or_path + '\n')
                 f.write('Test file: ' + self.hparams.test_file + '\n')
                 f.write('predictions \t labels \n')
                 preds_list = []

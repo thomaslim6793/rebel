@@ -129,18 +129,18 @@ hydra:
   runtime:
     version: 1.3.2
     version_base: '1.1'
-    cwd: /Users/thomaslim/rebel
+    cwd: /home/lim.hyu/rebel
     config_sources:
     - path: hydra.conf
       schema: pkg
       provider: hydra
-    - path: /Users/thomaslim/rebel/conf
+    - path: /home/lim.hyu/rebel/conf
       schema: file
       provider: main
     - path: ''
       schema: structured
       provider: schema
-    output_dir: /Users/thomaslim/rebel/outputs/2024-04-16/02-09-04
+    output_dir: /home/lim.hyu/rebel/outputs/2024-04-16/13-31-38
     choices:
       data: default_data
       model: default_model

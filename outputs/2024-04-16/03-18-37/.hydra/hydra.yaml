@@ -140,7 +140,7 @@ hydra:
     - path: ''
       schema: structured
       provider: schema
-    output_dir: /home/lim.hyu/rebel/outputs/2024-04-16/02-30-40
+    output_dir: /home/lim.hyu/rebel/outputs/2024-04-16/03-18-37
     choices:
       data: default_data
       model: default_model
