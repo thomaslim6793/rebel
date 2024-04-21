@@ -57,3 +57,4 @@ urllib3==2.2.1
 wandb==0.16.6
 xxhash==3.4.1
 yarl==1.9.4
+pyvis==0.3.1
